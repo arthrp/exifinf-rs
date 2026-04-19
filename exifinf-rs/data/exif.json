@@ -1,0 +1,4791 @@
+{
+   "0x0001" : {
+      "group1" : "IFD0",
+      "name" : "InteropIndex",
+      "print_conv" : {
+         "R03" : "R03 - DCF option file (Adobe RGB)",
+         "R98" : "R98 - DCF basic file (sRGB)",
+         "THM" : "THM - DCF thumbnail file"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0002" : {
+      "group1" : "IFD0",
+      "name" : "InteropVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x000b" : {
+      "group1" : "IFD0",
+      "name" : "ProcessingSoftware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x00fe" : {
+      "group1" : "IFD0",
+      "name" : "SubfileType",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x00ff" : {
+      "group1" : "IFD0",
+      "name" : "OldSubfileType",
+      "print_conv" : {
+         "1" : "Full-resolution image",
+         "2" : "Reduced-resolution image",
+         "3" : "Single page of multi-page image"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0100" : {
+      "group1" : "IFD1",
+      "name" : "ImageWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0101" : {
+      "group1" : "IFD0",
+      "name" : "ImageHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0102" : {
+      "group1" : "IFD0",
+      "name" : "BitsPerSample",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0103" : {
+      "group1" : "IFD0",
+      "name" : "Compression",
+      "print_conv" : {
+         "1" : "Uncompressed",
+         "10" : "JBIG Color",
+         "2" : "CCITT 1D",
+         "262" : "Kodak 262",
+         "3" : "T4/Group 3 Fax",
+         "32766" : "NeXt or Sony ARW Compressed 2",
+         "32767" : "Sony ARW Compressed",
+         "32769" : "Packed RAW",
+         "32770" : "Samsung SRW Compressed",
+         "32771" : "CCIRLEW",
+         "32772" : "Samsung SRW Compressed 2",
+         "32773" : "PackBits",
+         "32809" : "Thunderscan",
+         "32867" : "Kodak KDC Compressed",
+         "32895" : "IT8CTPAD",
+         "32896" : "IT8LW",
+         "32897" : "IT8MP",
+         "32898" : "IT8BL",
+         "32908" : "PixarFilm",
+         "32909" : "PixarLog",
+         "32946" : "Deflate",
+         "32947" : "DCS",
+         "33003" : "Aperio JPEG 2000 YCbCr",
+         "33005" : "Aperio JPEG 2000 RGB",
+         "34661" : "JBIG",
+         "34676" : "SGILog",
+         "34677" : "SGILog24",
+         "34712" : "JPEG 2000",
+         "34713" : "Nikon NEF Compressed",
+         "34715" : "JBIG2 TIFF FX",
+         "34718" : "Microsoft Document Imaging (MDI) Binary Level Codec",
+         "34719" : "Microsoft Document Imaging (MDI) Progressive Transform Codec",
+         "34720" : "Microsoft Document Imaging (MDI) Vector",
+         "34887" : "ESRI Lerc",
+         "34892" : "Lossy JPEG",
+         "34925" : "LZMA2",
+         "34926" : "Zstd (old)",
+         "34927" : "WebP (old)",
+         "34933" : "PNG",
+         "34934" : "JPEG XR",
+         "4" : "T6/Group 4 Fax",
+         "5" : "LZW",
+         "50000" : "Zstd",
+         "50001" : "WebP",
+         "50002" : "JPEG XL (old)",
+         "52546" : "JPEG XL",
+         "6" : "JPEG (old-style)",
+         "65000" : "Kodak DCR Compressed",
+         "65535" : "Pentax PEF Compressed",
+         "7" : "JPEG",
+         "8" : "Adobe Deflate",
+         "9" : "JBIG B&W or VC-5",
+         "99" : "JPEG"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0106" : {
+      "group1" : "IFD0",
+      "name" : "PhotometricInterpretation",
+      "print_conv" : {
+         "0" : "WhiteIsZero",
+         "1" : "BlackIsZero",
+         "10" : "ITULab",
+         "2" : "RGB",
+         "3" : "RGB Palette",
+         "32803" : "Color Filter Array",
+         "32844" : "Pixar LogL",
+         "32845" : "Pixar LogLuv",
+         "32892" : "Sequential Color Filter",
+         "34892" : "Linear Raw",
+         "4" : "Transparency Mask",
+         "5" : "CMYK",
+         "51177" : "Depth Map",
+         "52527" : "Semantic Mask",
+         "6" : "YCbCr",
+         "8" : "CIELab",
+         "9" : "ICCLab"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0107" : {
+      "group1" : "IFD0",
+      "name" : "Thresholding",
+      "print_conv" : {
+         "1" : "No dithering or halftoning",
+         "2" : "Ordered dither or halftone",
+         "3" : "Randomized dither"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0108" : {
+      "group1" : "IFD0",
+      "name" : "CellWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0109" : {
+      "group1" : "IFD0",
+      "name" : "CellLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x010a" : {
+      "group1" : "IFD0",
+      "name" : "FillOrder",
+      "print_conv" : {
+         "1" : "Normal",
+         "2" : "Reversed"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x010d" : {
+      "group1" : "IFD0",
+      "name" : "DocumentName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x010e" : {
+      "group1" : "IFD0",
+      "name" : "ImageDescription",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x010f" : {
+      "group1" : "IFD0",
+      "name" : "Make",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0110" : {
+      "group1" : "IFD0",
+      "name" : "Model",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0111" : {
+      "group1" : "IFD0",
+      "name" : "StripOffsets",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0112" : {
+      "group1" : "IFD0",
+      "name" : "Orientation",
+      "print_conv" : {
+         "1" : "Horizontal (normal)",
+         "2" : "Mirror horizontal",
+         "3" : "Rotate 180",
+         "4" : "Mirror vertical",
+         "5" : "Mirror horizontal and rotate 270 CW",
+         "6" : "Rotate 90 CW",
+         "7" : "Mirror horizontal and rotate 90 CW",
+         "8" : "Rotate 270 CW"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0115" : {
+      "group1" : "IFD0",
+      "name" : "SamplesPerPixel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0116" : {
+      "group1" : "IFD0",
+      "name" : "RowsPerStrip",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0117" : {
+      "group1" : "IFD0",
+      "name" : "StripByteCounts",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0118" : {
+      "group1" : "IFD0",
+      "name" : "MinSampleValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0119" : {
+      "group1" : "IFD0",
+      "name" : "MaxSampleValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x011a" : {
+      "group1" : "IFD0",
+      "name" : "XResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x011b" : {
+      "group1" : "IFD0",
+      "name" : "YResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x011c" : {
+      "group1" : "IFD0",
+      "name" : "PlanarConfiguration",
+      "print_conv" : {
+         "1" : "Chunky",
+         "2" : "Planar"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x011d" : {
+      "group1" : "IFD0",
+      "name" : "PageName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x011e" : {
+      "group1" : "IFD0",
+      "name" : "XPosition",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x011f" : {
+      "group1" : "IFD0",
+      "name" : "YPosition",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0120" : {
+      "group1" : "IFD0",
+      "name" : "FreeOffsets",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0121" : {
+      "group1" : "IFD0",
+      "name" : "FreeByteCounts",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0122" : {
+      "group1" : "IFD0",
+      "name" : "GrayResponseUnit",
+      "print_conv" : {
+         "1" : "0.1",
+         "2" : "0.001",
+         "3" : "0.0001",
+         "4" : "1e-05",
+         "5" : "1e-06"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0123" : {
+      "group1" : "IFD0",
+      "name" : "GrayResponseCurve",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0124" : {
+      "group1" : "IFD0",
+      "name" : "T4Options",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0125" : {
+      "group1" : "IFD0",
+      "name" : "T6Options",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0128" : {
+      "group1" : "IFD0",
+      "name" : "ResolutionUnit",
+      "print_conv" : {
+         "1" : "None",
+         "2" : "inches",
+         "3" : "cm"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0129" : {
+      "group1" : "IFD0",
+      "name" : "PageNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x012c" : {
+      "group1" : "IFD0",
+      "name" : "ColorResponseUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x012d" : {
+      "group1" : "IFD0",
+      "name" : "TransferFunction",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0131" : {
+      "group1" : "IFD0",
+      "name" : "Software",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0132" : {
+      "group1" : "IFD0",
+      "name" : "ModifyDate",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x013b" : {
+      "group1" : "IFD0",
+      "name" : "Artist",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x013c" : {
+      "group1" : "IFD0",
+      "name" : "HostComputer",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x013d" : {
+      "group1" : "IFD0",
+      "name" : "Predictor",
+      "print_conv" : {
+         "1" : "None",
+         "2" : "Horizontal differencing",
+         "3" : "Floating point",
+         "34892" : "Horizontal difference X2",
+         "34893" : "Horizontal difference X4",
+         "34894" : "Floating point X2",
+         "34895" : "Floating point X4"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x013e" : {
+      "group1" : "IFD0",
+      "name" : "WhitePoint",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x013f" : {
+      "group1" : "IFD0",
+      "name" : "PrimaryChromaticities",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0140" : {
+      "group1" : "IFD0",
+      "name" : "ColorMap",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0141" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneHints",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0142" : {
+      "group1" : "IFD0",
+      "name" : "TileWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0143" : {
+      "group1" : "IFD0",
+      "name" : "TileLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0144" : {
+      "group1" : "IFD0",
+      "name" : "TileOffsets",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0145" : {
+      "group1" : "IFD0",
+      "name" : "TileByteCounts",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0146" : {
+      "group1" : "IFD0",
+      "name" : "BadFaxLines",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0147" : {
+      "group1" : "IFD0",
+      "name" : "CleanFaxData",
+      "print_conv" : {
+         "0" : "Clean",
+         "1" : "Regenerated",
+         "2" : "Unclean"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0148" : {
+      "group1" : "IFD0",
+      "name" : "ConsecutiveBadFaxLines",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x014a" : {
+      "group1" : "SubIFD",
+      "name" : "SubIFD",
+      "print_conv" : null,
+      "sub_directory" : "SubIFD",
+      "writable" : null
+   },
+   "0x014c" : {
+      "group1" : "IFD0",
+      "name" : "InkSet",
+      "print_conv" : {
+         "1" : "CMYK",
+         "2" : "Not CMYK"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x014d" : {
+      "group1" : "IFD0",
+      "name" : "InkNames",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x014e" : {
+      "group1" : "IFD0",
+      "name" : "NumberofInks",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0150" : {
+      "group1" : "IFD0",
+      "name" : "DotRange",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0151" : {
+      "group1" : "IFD0",
+      "name" : "TargetPrinter",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0152" : {
+      "group1" : "IFD0",
+      "name" : "ExtraSamples",
+      "print_conv" : {
+         "0" : "Unspecified",
+         "1" : "Associated Alpha",
+         "2" : "Unassociated Alpha"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0153" : {
+      "group1" : "IFD0",
+      "name" : "SampleFormat",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0154" : {
+      "group1" : "IFD0",
+      "name" : "SMinSampleValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0155" : {
+      "group1" : "IFD0",
+      "name" : "SMaxSampleValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0156" : {
+      "group1" : "IFD0",
+      "name" : "TransferRange",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0157" : {
+      "group1" : "IFD0",
+      "name" : "ClipPath",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0158" : {
+      "group1" : "IFD0",
+      "name" : "XClipPathUnits",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0159" : {
+      "group1" : "IFD0",
+      "name" : "YClipPathUnits",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x015a" : {
+      "group1" : "IFD0",
+      "name" : "Indexed",
+      "print_conv" : {
+         "0" : "Not indexed",
+         "1" : "Indexed"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x015b" : {
+      "group1" : "IFD0",
+      "name" : "JPEGTables",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x015f" : {
+      "group1" : "IFD0",
+      "name" : "OPIProxy",
+      "print_conv" : {
+         "0" : "Higher resolution image does not exist",
+         "1" : "Higher resolution image exists"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0190" : {
+      "group1" : "GlobParamIFD",
+      "name" : "GlobalParametersIFD",
+      "print_conv" : null,
+      "sub_directory" : "SubIFD",
+      "writable" : null
+   },
+   "0x0191" : {
+      "group1" : "IFD0",
+      "name" : "ProfileType",
+      "print_conv" : {
+         "0" : "Unspecified",
+         "1" : "Group 3 FAX"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0192" : {
+      "group1" : "IFD0",
+      "name" : "FaxProfile",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Minimal B&W lossless, S",
+         "2" : "Extended B&W lossless, F",
+         "255" : "Multi Profiles",
+         "3" : "Lossless JBIG B&W, J",
+         "4" : "Lossy color and grayscale, C",
+         "5" : "Lossless color and grayscale, L",
+         "6" : "Mixed raster content, M",
+         "7" : "Profile T"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0193" : {
+      "group1" : "IFD0",
+      "name" : "CodingMethods",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0194" : {
+      "group1" : "IFD0",
+      "name" : "VersionYear",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0195" : {
+      "group1" : "IFD0",
+      "name" : "ModeNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x01b1" : {
+      "group1" : "IFD0",
+      "name" : "Decode",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x01b2" : {
+      "group1" : "IFD0",
+      "name" : "DefaultImageColor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x01b3" : {
+      "group1" : "IFD0",
+      "name" : "T82Options",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x01b5" : {
+      "group1" : "IFD0",
+      "name" : "JPEGTables",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0200" : {
+      "group1" : "IFD0",
+      "name" : "JPEGProc",
+      "print_conv" : {
+         "1" : "Baseline",
+         "14" : "Lossless"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0201" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailOffset",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0202" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x0203" : {
+      "group1" : "IFD0",
+      "name" : "JPEGRestartInterval",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0205" : {
+      "group1" : "IFD0",
+      "name" : "JPEGLosslessPredictors",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0206" : {
+      "group1" : "IFD0",
+      "name" : "JPEGPointTransforms",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0207" : {
+      "group1" : "IFD0",
+      "name" : "JPEGQTables",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0208" : {
+      "group1" : "IFD0",
+      "name" : "JPEGDCTables",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0209" : {
+      "group1" : "IFD0",
+      "name" : "JPEGACTables",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x0211" : {
+      "group1" : "IFD0",
+      "name" : "YCbCrCoefficients",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0212" : {
+      "group1" : "IFD0",
+      "name" : "YCbCrSubSampling",
+      "print_conv" : {
+         "1 1" : "YCbCr4:4:4 (1 1)",
+         "1 2" : "YCbCr4:4:0 (1 2)",
+         "1 4" : "YCbCr4:4:1 (1 4)",
+         "2 1" : "YCbCr4:2:2 (2 1)",
+         "2 2" : "YCbCr4:2:0 (2 2)",
+         "2 4" : "YCbCr4:2:1 (2 4)",
+         "4 1" : "YCbCr4:1:1 (4 1)",
+         "4 2" : "YCbCr4:1:0 (4 2)"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0213" : {
+      "group1" : "IFD0",
+      "name" : "YCbCrPositioning",
+      "print_conv" : {
+         "1" : "Centered",
+         "2" : "Co-sited"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x0214" : {
+      "group1" : "IFD0",
+      "name" : "ReferenceBlackWhite",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x022f" : {
+      "group1" : "IFD0",
+      "name" : "StripRowCounts",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x02bc" : {
+      "group1" : "IFD0",
+      "name" : "ApplicationNotes",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x0303" : {
+      "group1" : "IFD0",
+      "name" : "RenderingIntent",
+      "print_conv" : {
+         "0" : "Perceptual",
+         "1" : "Relative Colorimetric",
+         "2" : "Saturation",
+         "3" : "Absolute colorimetric"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x03e7" : {
+      "group1" : "IFD0",
+      "name" : "USPTOMiscellaneous",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x1000" : {
+      "group1" : "IFD0",
+      "name" : "RelatedImageFileFormat",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x1001" : {
+      "group1" : "IFD0",
+      "name" : "RelatedImageWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x1002" : {
+      "group1" : "IFD0",
+      "name" : "RelatedImageHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x4746" : {
+      "group1" : "IFD0",
+      "name" : "Rating",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x4747" : {
+      "group1" : "IFD0",
+      "name" : "XP_DIP_XML",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x4748" : {
+      "group1" : "IFD0",
+      "name" : "StitchInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x4749" : {
+      "group1" : "IFD0",
+      "name" : "RatingPercent",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x5001" : {
+      "group1" : "IFD0",
+      "name" : "ResolutionXUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5002" : {
+      "group1" : "IFD0",
+      "name" : "ResolutionYUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5003" : {
+      "group1" : "IFD0",
+      "name" : "ResolutionXLengthUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5004" : {
+      "group1" : "IFD0",
+      "name" : "ResolutionYLengthUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5005" : {
+      "group1" : "IFD0",
+      "name" : "PrintFlags",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5006" : {
+      "group1" : "IFD0",
+      "name" : "PrintFlagsVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5007" : {
+      "group1" : "IFD0",
+      "name" : "PrintFlagsCrop",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5008" : {
+      "group1" : "IFD0",
+      "name" : "PrintFlagsBleedWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5009" : {
+      "group1" : "IFD0",
+      "name" : "PrintFlagsBleedWidthScale",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x500a" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneLPI",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x500b" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneLPIUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x500c" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneDegree",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x500d" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneShape",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x500e" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneMisc",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x500f" : {
+      "group1" : "IFD0",
+      "name" : "HalftoneScreen",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5010" : {
+      "group1" : "IFD0",
+      "name" : "JPEGQuality",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5011" : {
+      "group1" : "IFD0",
+      "name" : "GridSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5012" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailFormat",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5013" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5014" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5015" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailColorDepth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5016" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailPlanes",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5017" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailRawBytes",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5018" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5019" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailCompressedSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x501a" : {
+      "group1" : "IFD0",
+      "name" : "ColorTransferFunction",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x501b" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5020" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailImageWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5021" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailImageHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5022" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailBitsPerSample",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5023" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailCompression",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5024" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailPhotometricInterp",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5025" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailDescription",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5026" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailEquipMake",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5027" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailEquipModel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5028" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailStripOffsets",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5029" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailOrientation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x502a" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailSamplesPerPixel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x502b" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailRowsPerStrip",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x502c" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailStripByteCounts",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x502d" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailResolutionX",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x502e" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailResolutionY",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x502f" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailPlanarConfig",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5030" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailResolutionUnit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5031" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailTransferFunction",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5032" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailSoftware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5033" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailDateTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5034" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailArtist",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5035" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailWhitePoint",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5036" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailPrimaryChromaticities",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5037" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailYCbCrCoefficients",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5038" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailYCbCrSubsampling",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5039" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailYCbCrPositioning",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x503a" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailRefBlackWhite",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x503b" : {
+      "group1" : "IFD0",
+      "name" : "ThumbnailCopyright",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5090" : {
+      "group1" : "IFD0",
+      "name" : "LuminanceTable",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5091" : {
+      "group1" : "IFD0",
+      "name" : "ChrominanceTable",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5100" : {
+      "group1" : "IFD0",
+      "name" : "FrameDelay",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5101" : {
+      "group1" : "IFD0",
+      "name" : "LoopCount",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5102" : {
+      "group1" : "IFD0",
+      "name" : "GlobalPalette",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5103" : {
+      "group1" : "IFD0",
+      "name" : "IndexBackground",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5104" : {
+      "group1" : "IFD0",
+      "name" : "IndexTransparent",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5110" : {
+      "group1" : "IFD0",
+      "name" : "PixelUnits",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5111" : {
+      "group1" : "IFD0",
+      "name" : "PixelsPerUnitX",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5112" : {
+      "group1" : "IFD0",
+      "name" : "PixelsPerUnitY",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x5113" : {
+      "group1" : "IFD0",
+      "name" : "PaletteHistogram",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x7000" : {
+      "group1" : "IFD0",
+      "name" : "SonyRawFileType",
+      "print_conv" : {
+         "0" : "Sony Uncompressed 14-bit RAW",
+         "1" : "Sony Uncompressed 12-bit RAW",
+         "2" : "Sony Compressed RAW",
+         "3" : "Sony Lossless Compressed RAW",
+         "4" : "Sony Lossless Compressed RAW 2",
+         "6" : "Sony Compressed RAW 2"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x7010" : {
+      "group1" : "IFD0",
+      "name" : "SonyToneCurve",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x7031" : {
+      "group1" : "IFD0",
+      "name" : "VignettingCorrection",
+      "print_conv" : {
+         "256" : "Off",
+         "257" : "Auto",
+         "272" : "Auto (ILCE-1)",
+         "511" : "No correction params available"
+      },
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x7032" : {
+      "group1" : "IFD0",
+      "name" : "VignettingCorrParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x7034" : {
+      "group1" : "IFD0",
+      "name" : "ChromaticAberrationCorrection",
+      "print_conv" : {
+         "0" : "Off",
+         "1" : "Auto",
+         "255" : "No correction params available"
+      },
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x7035" : {
+      "group1" : "IFD0",
+      "name" : "ChromaticAberrationCorrParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x7036" : {
+      "group1" : "IFD0",
+      "name" : "DistortionCorrection",
+      "print_conv" : {
+         "0" : "Off",
+         "1" : "Auto",
+         "17" : "Auto fixed by lens",
+         "255" : "No correction params available"
+      },
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x7037" : {
+      "group1" : "IFD0",
+      "name" : "DistortionCorrParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x7038" : {
+      "group1" : "IFD0",
+      "name" : "SonyRawImageSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x7310" : {
+      "group1" : "IFD0",
+      "name" : "BlackLevel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x7313" : {
+      "group1" : "IFD0",
+      "name" : "WB_RGGBLevels",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x74c7" : {
+      "group1" : "IFD0",
+      "name" : "SonyCropTopLeft",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x74c8" : {
+      "group1" : "IFD0",
+      "name" : "SonyCropSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x800d" : {
+      "group1" : "IFD0",
+      "name" : "ImageID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80a3" : {
+      "group1" : "IFD0",
+      "name" : "WangTag1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80a4" : {
+      "group1" : "IFD0",
+      "name" : "WangAnnotation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80a5" : {
+      "group1" : "IFD0",
+      "name" : "WangTag3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80a6" : {
+      "group1" : "IFD0",
+      "name" : "WangTag4",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80b9" : {
+      "group1" : "IFD0",
+      "name" : "ImageReferencePoints",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80ba" : {
+      "group1" : "IFD0",
+      "name" : "RegionXformTackPoint",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80bb" : {
+      "group1" : "IFD0",
+      "name" : "WarpQuadrilateral",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80bc" : {
+      "group1" : "IFD0",
+      "name" : "AffineTransformMat",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80e3" : {
+      "group1" : "IFD0",
+      "name" : "Matteing",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80e4" : {
+      "group1" : "IFD0",
+      "name" : "DataType",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80e5" : {
+      "group1" : "IFD0",
+      "name" : "ImageDepth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x80e6" : {
+      "group1" : "IFD0",
+      "name" : "TileDepth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8214" : {
+      "group1" : "IFD0",
+      "name" : "ImageFullWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8215" : {
+      "group1" : "IFD0",
+      "name" : "ImageFullHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8216" : {
+      "group1" : "IFD0",
+      "name" : "TextureFormat",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8217" : {
+      "group1" : "IFD0",
+      "name" : "WrapModes",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8218" : {
+      "group1" : "IFD0",
+      "name" : "FovCot",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8219" : {
+      "group1" : "IFD0",
+      "name" : "MatrixWorldToScreen",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x821a" : {
+      "group1" : "IFD0",
+      "name" : "MatrixWorldToCamera",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x827d" : {
+      "group1" : "IFD0",
+      "name" : "Model2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x828d" : {
+      "group1" : "IFD0",
+      "name" : "CFARepeatPatternDim",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x828e" : {
+      "group1" : "IFD0",
+      "name" : "CFAPattern2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x828f" : {
+      "group1" : "IFD0",
+      "name" : "BatteryLevel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8290" : {
+      "group1" : "KodakIFD",
+      "name" : "KodakIFD",
+      "print_conv" : null,
+      "sub_directory" : "SubIFD",
+      "writable" : null
+   },
+   "0x8298" : {
+      "group1" : "IFD0",
+      "name" : "Copyright",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x829a" : {
+      "group1" : "IFD0",
+      "name" : "ExposureTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x829d" : {
+      "group1" : "IFD0",
+      "name" : "FNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x82a5" : {
+      "group1" : "IFD0",
+      "name" : "MDFileTag",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82a6" : {
+      "group1" : "IFD0",
+      "name" : "MDScalePixel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82a7" : {
+      "group1" : "IFD0",
+      "name" : "MDColorTable",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82a8" : {
+      "group1" : "IFD0",
+      "name" : "MDLabName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82a9" : {
+      "group1" : "IFD0",
+      "name" : "MDSampleInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82aa" : {
+      "group1" : "IFD0",
+      "name" : "MDPrepDate",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82ab" : {
+      "group1" : "IFD0",
+      "name" : "MDPrepTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x82ac" : {
+      "group1" : "IFD0",
+      "name" : "MDFileUnits",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x830e" : {
+      "group1" : "IFD0",
+      "name" : "PixelScale",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0x8335" : {
+      "group1" : "IFD0",
+      "name" : "AdventScale",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8336" : {
+      "group1" : "IFD0",
+      "name" : "AdventRevision",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x835c" : {
+      "group1" : "IFD0",
+      "name" : "UIC1Tag",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x835d" : {
+      "group1" : "IFD0",
+      "name" : "UIC2Tag",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x835e" : {
+      "group1" : "IFD0",
+      "name" : "UIC3Tag",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x835f" : {
+      "group1" : "IFD0",
+      "name" : "UIC4Tag",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x83bb" : {
+      "group1" : "IFD0",
+      "name" : "IPTC-NAA",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x847e" : {
+      "group1" : "IFD0",
+      "name" : "IntergraphPacketData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x847f" : {
+      "group1" : "IFD0",
+      "name" : "IntergraphFlagRegisters",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8480" : {
+      "group1" : "IFD0",
+      "name" : "IntergraphMatrix",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0x8481" : {
+      "group1" : "IFD0",
+      "name" : "INGRReserved",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8482" : {
+      "group1" : "IFD0",
+      "name" : "ModelTiePoint",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0x84e0" : {
+      "group1" : "IFD0",
+      "name" : "Site",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e1" : {
+      "group1" : "IFD0",
+      "name" : "ColorSequence",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e2" : {
+      "group1" : "IFD0",
+      "name" : "IT8Header",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e3" : {
+      "group1" : "IFD0",
+      "name" : "RasterPadding",
+      "print_conv" : {
+         "0" : "Byte",
+         "1" : "Word",
+         "10" : "Long Sector",
+         "2" : "Long Word",
+         "9" : "Sector"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e4" : {
+      "group1" : "IFD0",
+      "name" : "BitsPerRunLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e5" : {
+      "group1" : "IFD0",
+      "name" : "BitsPerExtendedRunLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e6" : {
+      "group1" : "IFD0",
+      "name" : "ColorTable",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e7" : {
+      "group1" : "IFD0",
+      "name" : "ImageColorIndicator",
+      "print_conv" : {
+         "0" : "Unspecified Image Color",
+         "1" : "Specified Image Color"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e8" : {
+      "group1" : "IFD0",
+      "name" : "BackgroundColorIndicator",
+      "print_conv" : {
+         "0" : "Unspecified Background Color",
+         "1" : "Specified Background Color"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84e9" : {
+      "group1" : "IFD0",
+      "name" : "ImageColorValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84ea" : {
+      "group1" : "IFD0",
+      "name" : "BackgroundColorValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84eb" : {
+      "group1" : "IFD0",
+      "name" : "PixelIntensityRange",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84ec" : {
+      "group1" : "IFD0",
+      "name" : "TransparencyIndicator",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84ed" : {
+      "group1" : "IFD0",
+      "name" : "ColorCharacterization",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84ee" : {
+      "group1" : "IFD0",
+      "name" : "HCUsage",
+      "print_conv" : {
+         "0" : "CT",
+         "1" : "Line Art",
+         "2" : "Trap"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84ef" : {
+      "group1" : "IFD0",
+      "name" : "TrapIndicator",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x84f0" : {
+      "group1" : "IFD0",
+      "name" : "CMYKEquivalent",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8546" : {
+      "group1" : "IFD0",
+      "name" : "SEMInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x8568" : {
+      "group1" : "IFD0",
+      "name" : "AFCP_IPTC",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x85b8" : {
+      "group1" : "IFD0",
+      "name" : "PixelMagicJBIGOptions",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x85d7" : {
+      "group1" : "IFD0",
+      "name" : "JPLCartoIFD",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x85d8" : {
+      "group1" : "IFD0",
+      "name" : "ModelTransform",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0x8602" : {
+      "group1" : "IFD0",
+      "name" : "WB_GRGBLevels",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8606" : {
+      "group1" : "IFD0",
+      "name" : "LeafData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8649" : {
+      "group1" : "IFD0",
+      "name" : "PhotoshopSettings",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8769" : {
+      "group1" : "ExifIFD",
+      "name" : "ExifOffset",
+      "print_conv" : null,
+      "sub_directory" : "ExifIFD",
+      "writable" : null
+   },
+   "0x8773" : {
+      "group1" : "IFD0",
+      "name" : "ICC_Profile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x877f" : {
+      "group1" : "IFD0",
+      "name" : "TIFF_FXExtensions",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8780" : {
+      "group1" : "IFD0",
+      "name" : "MultiProfiles",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8781" : {
+      "group1" : "IFD0",
+      "name" : "SharedData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8782" : {
+      "group1" : "IFD0",
+      "name" : "T88Options",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x87ac" : {
+      "group1" : "IFD0",
+      "name" : "ImageLayer",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x87af" : {
+      "group1" : "IFD0",
+      "name" : "GeoTiffDirectory",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x87b0" : {
+      "group1" : "IFD0",
+      "name" : "GeoTiffDoubleParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0x87b1" : {
+      "group1" : "IFD0",
+      "name" : "GeoTiffAsciiParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x87be" : {
+      "group1" : "IFD0",
+      "name" : "JBIGOptions",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8822" : {
+      "group1" : "IFD0",
+      "name" : "ExposureProgram",
+      "print_conv" : {
+         "0" : "Not Defined",
+         "1" : "Manual",
+         "2" : "Program AE",
+         "3" : "Aperture-priority AE",
+         "4" : "Shutter speed priority AE",
+         "5" : "Creative (Slow speed)",
+         "6" : "Action (High speed)",
+         "7" : "Portrait",
+         "8" : "Landscape",
+         "9" : "Bulb"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x8824" : {
+      "group1" : "IFD0",
+      "name" : "SpectralSensitivity",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x8825" : {
+      "group1" : "GPS",
+      "name" : "GPSInfo",
+      "print_conv" : null,
+      "sub_directory" : "GPS",
+      "writable" : null
+   },
+   "0x8827" : {
+      "group1" : "IFD0",
+      "name" : "ISO",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x8828" : {
+      "group1" : "IFD0",
+      "name" : "Opto-ElectricConvFactor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8829" : {
+      "group1" : "IFD0",
+      "name" : "Interlace",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x882a" : {
+      "group1" : "IFD0",
+      "name" : "TimeZoneOffset",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16s"
+   },
+   "0x882b" : {
+      "group1" : "IFD0",
+      "name" : "SelfTimerMode",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x8830" : {
+      "group1" : "IFD0",
+      "name" : "SensitivityType",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Standard Output Sensitivity",
+         "2" : "Recommended Exposure Index",
+         "3" : "ISO Speed",
+         "4" : "Standard Output Sensitivity and Recommended Exposure Index",
+         "5" : "Standard Output Sensitivity and ISO Speed",
+         "6" : "Recommended Exposure Index and ISO Speed",
+         "7" : "Standard Output Sensitivity, Recommended Exposure Index and ISO Speed"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x8831" : {
+      "group1" : "IFD0",
+      "name" : "StandardOutputSensitivity",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x8832" : {
+      "group1" : "IFD0",
+      "name" : "RecommendedExposureIndex",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x8833" : {
+      "group1" : "IFD0",
+      "name" : "ISOSpeed",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x8834" : {
+      "group1" : "IFD0",
+      "name" : "ISOSpeedLatitudeyyy",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x8835" : {
+      "group1" : "IFD0",
+      "name" : "ISOSpeedLatitudezzz",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x885c" : {
+      "group1" : "IFD0",
+      "name" : "FaxRecvParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x885d" : {
+      "group1" : "IFD0",
+      "name" : "FaxSubAddress",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x885e" : {
+      "group1" : "IFD0",
+      "name" : "FaxRecvTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x8871" : {
+      "group1" : "IFD0",
+      "name" : "FedexEDR",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x888a" : {
+      "group1" : "LeafSubIFD",
+      "name" : "LeafSubIFD",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9000" : {
+      "group1" : "IFD0",
+      "name" : "ExifVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x9003" : {
+      "group1" : "IFD0",
+      "name" : "DateTimeOriginal",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9004" : {
+      "group1" : "IFD0",
+      "name" : "CreateDate",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9009" : {
+      "group1" : "IFD0",
+      "name" : "GooglePlusUploadCode",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x9010" : {
+      "group1" : "IFD0",
+      "name" : "OffsetTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9011" : {
+      "group1" : "IFD0",
+      "name" : "OffsetTimeOriginal",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9012" : {
+      "group1" : "IFD0",
+      "name" : "OffsetTimeDigitized",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9101" : {
+      "group1" : "IFD0",
+      "name" : "ComponentsConfiguration",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x9102" : {
+      "group1" : "IFD0",
+      "name" : "CompressedBitsPerPixel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9201" : {
+      "group1" : "IFD0",
+      "name" : "ShutterSpeedValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0x9202" : {
+      "group1" : "IFD0",
+      "name" : "ApertureValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9203" : {
+      "group1" : "IFD0",
+      "name" : "BrightnessValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0x9204" : {
+      "group1" : "IFD0",
+      "name" : "ExposureCompensation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0x9205" : {
+      "group1" : "IFD0",
+      "name" : "MaxApertureValue",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9206" : {
+      "group1" : "IFD0",
+      "name" : "SubjectDistance",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9207" : {
+      "group1" : "IFD0",
+      "name" : "MeteringMode",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Average",
+         "2" : "Center-weighted average",
+         "255" : "Other",
+         "3" : "Spot",
+         "4" : "Multi-spot",
+         "5" : "Multi-segment",
+         "6" : "Partial"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x9208" : {
+      "group1" : "IFD0",
+      "name" : "LightSource",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Daylight",
+         "10" : "Cloudy",
+         "11" : "Shade",
+         "12" : "Daylight Fluorescent",
+         "13" : "Day White Fluorescent",
+         "14" : "Cool White Fluorescent",
+         "15" : "White Fluorescent",
+         "16" : "Warm White Fluorescent",
+         "17" : "Standard Light A",
+         "18" : "Standard Light B",
+         "19" : "Standard Light C",
+         "2" : "Fluorescent",
+         "20" : "D55",
+         "21" : "D65",
+         "22" : "D75",
+         "23" : "D50",
+         "24" : "ISO Studio Tungsten",
+         "25" : "Daylight",
+         "255" : "Other",
+         "26" : "Day White",
+         "27" : "Cool White",
+         "28" : "White",
+         "29" : "Warm White",
+         "3" : "Tungsten (Incandescent)",
+         "30" : "Daylight LED",
+         "31" : "Day White LED",
+         "32" : "Cool White LED",
+         "33" : "White LED",
+         "34" : "Warm White LED",
+         "4" : "Flash",
+         "9" : "Fine Weather"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x9209" : {
+      "group1" : "IFD0",
+      "name" : "Flash",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x920a" : {
+      "group1" : "IFD0",
+      "name" : "FocalLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x920b" : {
+      "group1" : "IFD0",
+      "name" : "FlashEnergy",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x920c" : {
+      "group1" : "IFD0",
+      "name" : "SpatialFrequencyResponse",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x920d" : {
+      "group1" : "IFD0",
+      "name" : "Noise",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x920e" : {
+      "group1" : "IFD0",
+      "name" : "FocalPlaneXResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x920f" : {
+      "group1" : "IFD0",
+      "name" : "FocalPlaneYResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9210" : {
+      "group1" : "IFD0",
+      "name" : "FocalPlaneResolutionUnit",
+      "print_conv" : {
+         "1" : "None",
+         "2" : "inches",
+         "3" : "cm",
+         "4" : "mm",
+         "5" : "um"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9211" : {
+      "group1" : "IFD0",
+      "name" : "ImageNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0x9212" : {
+      "group1" : "IFD0",
+      "name" : "SecurityClassification",
+      "print_conv" : {
+         "C" : "Confidential",
+         "R" : "Restricted",
+         "S" : "Secret",
+         "T" : "Top Secret",
+         "U" : "Unclassified"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9213" : {
+      "group1" : "IFD0",
+      "name" : "ImageHistory",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9214" : {
+      "group1" : "IFD0",
+      "name" : "SubjectArea",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x9215" : {
+      "group1" : "IFD0",
+      "name" : "ExposureIndex",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9216" : {
+      "group1" : "IFD0",
+      "name" : "TIFF-EPStandardID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9217" : {
+      "group1" : "IFD0",
+      "name" : "SensingMethod",
+      "print_conv" : {
+         "1" : "Monochrome area",
+         "2" : "One-chip color area",
+         "3" : "Two-chip color area",
+         "4" : "Three-chip color area",
+         "5" : "Color sequential area",
+         "6" : "Monochrome linear",
+         "7" : "Trilinear",
+         "8" : "Color sequential linear"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x923a" : {
+      "group1" : "IFD0",
+      "name" : "CIP3DataFile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x923b" : {
+      "group1" : "IFD0",
+      "name" : "CIP3Sheet",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x923c" : {
+      "group1" : "IFD0",
+      "name" : "CIP3Side",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x923f" : {
+      "group1" : "IFD0",
+      "name" : "StoNits",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x927c" : {
+      "group1" : "ExifIFD",
+      "name" : "MakerNote",
+      "print_conv" : null,
+      "sub_directory" : "MakerNotes",
+      "writable" : "undef"
+   },
+   "0x9286" : {
+      "group1" : "IFD0",
+      "name" : "UserComment",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x9287" : {
+      "group1" : "IFD0",
+      "name" : "LearningOptOutIn",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x9290" : {
+      "group1" : "IFD0",
+      "name" : "SubSecTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9291" : {
+      "group1" : "IFD0",
+      "name" : "SubSecTimeOriginal",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9292" : {
+      "group1" : "IFD0",
+      "name" : "SubSecTimeDigitized",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x932f" : {
+      "group1" : "IFD0",
+      "name" : "MSDocumentText",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9330" : {
+      "group1" : "IFD0",
+      "name" : "MSPropertySetStorage",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x9331" : {
+      "group1" : "IFD0",
+      "name" : "MSDocumentTextPosition",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0x935c" : {
+      "group1" : "IFD0",
+      "name" : "ImageSourceData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x9400" : {
+      "group1" : "IFD0",
+      "name" : "AmbientTemperature",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0x9401" : {
+      "group1" : "IFD0",
+      "name" : "Humidity",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9402" : {
+      "group1" : "IFD0",
+      "name" : "Pressure",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9403" : {
+      "group1" : "IFD0",
+      "name" : "WaterDepth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0x9404" : {
+      "group1" : "IFD0",
+      "name" : "Acceleration",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x9405" : {
+      "group1" : "IFD0",
+      "name" : "CameraElevationAngle",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0x9999" : {
+      "group1" : "IFD0",
+      "name" : "XiaomiSettings",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9a00" : {
+      "group1" : "IFD0",
+      "name" : "XiaomiModel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x9c9b" : {
+      "group1" : "IFD0",
+      "name" : "XPTitle",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x9c9c" : {
+      "group1" : "IFD0",
+      "name" : "XPComment",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x9c9d" : {
+      "group1" : "IFD0",
+      "name" : "XPAuthor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x9c9e" : {
+      "group1" : "IFD0",
+      "name" : "XPKeywords",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x9c9f" : {
+      "group1" : "IFD0",
+      "name" : "XPSubject",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xa000" : {
+      "group1" : "IFD0",
+      "name" : "FlashpixVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xa001" : {
+      "group1" : "IFD0",
+      "name" : "ColorSpace",
+      "print_conv" : {
+         "1" : "sRGB",
+         "2" : "Adobe RGB",
+         "65533" : "Wide Gamut RGB",
+         "65534" : "ICC Profile",
+         "65535" : "Uncalibrated"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa002" : {
+      "group1" : "IFD0",
+      "name" : "ExifImageWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa003" : {
+      "group1" : "IFD0",
+      "name" : "ExifImageHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa004" : {
+      "group1" : "IFD0",
+      "name" : "RelatedSoundFile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa005" : {
+      "group1" : "InteropIFD",
+      "name" : "InteropOffset",
+      "print_conv" : null,
+      "sub_directory" : "InteropIFD",
+      "writable" : null
+   },
+   "0xa010" : {
+      "group1" : "IFD0",
+      "name" : "SamsungRawPointersOffset",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa011" : {
+      "group1" : "IFD0",
+      "name" : "SamsungRawPointersLength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa101" : {
+      "group1" : "IFD0",
+      "name" : "SamsungRawByteOrder",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa102" : {
+      "group1" : "IFD0",
+      "name" : "SamsungRawUnknown",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa20b" : {
+      "group1" : "IFD0",
+      "name" : "FlashEnergy",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xa20c" : {
+      "group1" : "IFD0",
+      "name" : "SpatialFrequencyResponse",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa20d" : {
+      "group1" : "IFD0",
+      "name" : "Noise",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa20e" : {
+      "group1" : "IFD0",
+      "name" : "FocalPlaneXResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xa20f" : {
+      "group1" : "IFD0",
+      "name" : "FocalPlaneYResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xa210" : {
+      "group1" : "IFD0",
+      "name" : "FocalPlaneResolutionUnit",
+      "print_conv" : {
+         "1" : "None",
+         "2" : "inches",
+         "3" : "cm",
+         "4" : "mm",
+         "5" : "um"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa211" : {
+      "group1" : "IFD0",
+      "name" : "ImageNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa212" : {
+      "group1" : "IFD0",
+      "name" : "SecurityClassification",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa213" : {
+      "group1" : "IFD0",
+      "name" : "ImageHistory",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa214" : {
+      "group1" : "IFD0",
+      "name" : "SubjectLocation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa215" : {
+      "group1" : "IFD0",
+      "name" : "ExposureIndex",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xa216" : {
+      "group1" : "IFD0",
+      "name" : "TIFF-EPStandardID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa217" : {
+      "group1" : "IFD0",
+      "name" : "SensingMethod",
+      "print_conv" : {
+         "1" : "Not defined",
+         "2" : "One-chip color area",
+         "3" : "Two-chip color area",
+         "4" : "Three-chip color area",
+         "5" : "Color sequential area",
+         "7" : "Trilinear",
+         "8" : "Color sequential linear"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa300" : {
+      "group1" : "IFD0",
+      "name" : "FileSource",
+      "print_conv" : {
+         "\u0003\u0000\u0000\u0000" : "Sigma Digital Camera",
+         "1" : "Film Scanner",
+         "2" : "Reflection Print Scanner",
+         "3" : "Digital Camera"
+      },
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xa301" : {
+      "group1" : "IFD0",
+      "name" : "SceneType",
+      "print_conv" : {
+         "1" : "Directly photographed"
+      },
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xa302" : {
+      "group1" : "IFD0",
+      "name" : "CFAPattern",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xa401" : {
+      "group1" : "IFD0",
+      "name" : "CustomRendered",
+      "print_conv" : {
+         "0" : "Normal",
+         "1" : "Custom",
+         "2" : "HDR (no original saved)",
+         "3" : "HDR (original saved)",
+         "4" : "Original (for HDR)",
+         "6" : "Panorama",
+         "7" : "Portrait HDR",
+         "8" : "Portrait"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa402" : {
+      "group1" : "IFD0",
+      "name" : "ExposureMode",
+      "print_conv" : {
+         "0" : "Auto",
+         "1" : "Manual",
+         "2" : "Auto bracket"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa403" : {
+      "group1" : "IFD0",
+      "name" : "WhiteBalance",
+      "print_conv" : {
+         "0" : "Auto",
+         "1" : "Manual"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa404" : {
+      "group1" : "IFD0",
+      "name" : "DigitalZoomRatio",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xa405" : {
+      "group1" : "IFD0",
+      "name" : "FocalLengthIn35mmFormat",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa406" : {
+      "group1" : "IFD0",
+      "name" : "SceneCaptureType",
+      "print_conv" : {
+         "0" : "Standard",
+         "1" : "Landscape",
+         "2" : "Portrait",
+         "3" : "Night",
+         "4" : "Other"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa407" : {
+      "group1" : "IFD0",
+      "name" : "GainControl",
+      "print_conv" : {
+         "0" : "None",
+         "1" : "Low gain up",
+         "2" : "High gain up",
+         "3" : "Low gain down",
+         "4" : "High gain down"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa408" : {
+      "group1" : "IFD0",
+      "name" : "Contrast",
+      "print_conv" : {
+         "0" : "Normal",
+         "1" : "Low",
+         "2" : "High"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa409" : {
+      "group1" : "IFD0",
+      "name" : "Saturation",
+      "print_conv" : {
+         "0" : "Normal",
+         "1" : "Low",
+         "2" : "High"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa40a" : {
+      "group1" : "IFD0",
+      "name" : "Sharpness",
+      "print_conv" : {
+         "0" : "Normal",
+         "1" : "Soft",
+         "2" : "Hard"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa40b" : {
+      "group1" : "IFD0",
+      "name" : "DeviceSettingDescription",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xa40c" : {
+      "group1" : "IFD0",
+      "name" : "SubjectDistanceRange",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Macro",
+         "2" : "Close",
+         "3" : "Distant"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa40d" : {
+      "group1" : "IFD0",
+      "name" : "DevelopmentType",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa40e" : {
+      "group1" : "IFD0",
+      "name" : "DevelopmentTypeDescription",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa40f" : {
+      "group1" : "IFD0",
+      "name" : "DistortionCorrection",
+      "print_conv" : {
+         "0" : "No",
+         "1" : "Yes"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa410" : {
+      "group1" : "IFD0",
+      "name" : "ChromaticAberrationCorrection",
+      "print_conv" : {
+         "0" : "No",
+         "1" : "Yes"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa411" : {
+      "group1" : "IFD0",
+      "name" : "ShadingCorrection",
+      "print_conv" : {
+         "0" : "No",
+         "1" : "Yes"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa412" : {
+      "group1" : "IFD0",
+      "name" : "NoiseReduction",
+      "print_conv" : {
+         "0" : "No",
+         "1" : "Yes"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa420" : {
+      "group1" : "IFD0",
+      "name" : "ImageUniqueID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa430" : {
+      "group1" : "IFD0",
+      "name" : "OwnerName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa431" : {
+      "group1" : "IFD0",
+      "name" : "SerialNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa432" : {
+      "group1" : "IFD0",
+      "name" : "LensInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xa433" : {
+      "group1" : "IFD0",
+      "name" : "LensMake",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa434" : {
+      "group1" : "IFD0",
+      "name" : "LensModel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa435" : {
+      "group1" : "IFD0",
+      "name" : "LensSerialNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa436" : {
+      "group1" : "IFD0",
+      "name" : "ImageTitle",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa437" : {
+      "group1" : "IFD0",
+      "name" : "Photographer",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa438" : {
+      "group1" : "IFD0",
+      "name" : "ImageEditor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa439" : {
+      "group1" : "IFD0",
+      "name" : "CameraFirmware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa43a" : {
+      "group1" : "IFD0",
+      "name" : "RAWDevelopingSoftware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa43b" : {
+      "group1" : "IFD0",
+      "name" : "ImageEditingSoftware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa43c" : {
+      "group1" : "IFD0",
+      "name" : "MetadataEditingSoftware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa460" : {
+      "group1" : "IFD0",
+      "name" : "CompositeImage",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Not a Composite Image",
+         "2" : "General Composite Image",
+         "3" : "Composite Image Captured While Shooting"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa461" : {
+      "group1" : "IFD0",
+      "name" : "CompositeImageCount",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xa462" : {
+      "group1" : "IFD0",
+      "name" : "CompositeImageExposureTimes",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xa480" : {
+      "group1" : "IFD0",
+      "name" : "GDALMetadata",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa481" : {
+      "group1" : "IFD0",
+      "name" : "GDALNoData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xa500" : {
+      "group1" : "IFD0",
+      "name" : "Gamma",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xafc0" : {
+      "group1" : "IFD0",
+      "name" : "ExpandSoftware",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xafc1" : {
+      "group1" : "IFD0",
+      "name" : "ExpandLens",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xafc2" : {
+      "group1" : "IFD0",
+      "name" : "ExpandFilm",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xafc3" : {
+      "group1" : "IFD0",
+      "name" : "ExpandFilterLens",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xafc4" : {
+      "group1" : "IFD0",
+      "name" : "ExpandScanner",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xafc5" : {
+      "group1" : "IFD0",
+      "name" : "ExpandFlashLamp",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xb4c3" : {
+      "group1" : "IFD0",
+      "name" : "HasselbladRawImage",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc01" : {
+      "group1" : "IFD0",
+      "name" : "PixelFormat",
+      "print_conv" : {
+         "10" : "16-bit BGR565",
+         "11" : "16-bit Gray",
+         "12" : "24-bit BGR",
+         "13" : "24-bit RGB",
+         "14" : "32-bit BGR",
+         "15" : "32-bit BGRA",
+         "16" : "32-bit PBGRA",
+         "17" : "32-bit Gray Float",
+         "18" : "48-bit RGB Fixed Point",
+         "19" : "32-bit BGR101010",
+         "21" : "48-bit RGB",
+         "22" : "64-bit RGBA",
+         "23" : "64-bit PRGBA",
+         "24" : "96-bit RGB Fixed Point",
+         "25" : "128-bit RGBA Float",
+         "26" : "128-bit PRGBA Float",
+         "27" : "128-bit RGB Float",
+         "28" : "32-bit CMYK",
+         "29" : "64-bit RGBA Fixed Point",
+         "30" : "128-bit RGBA Fixed Point",
+         "31" : "64-bit CMYK",
+         "32" : "24-bit 3 Channels",
+         "33" : "32-bit 4 Channels",
+         "34" : "40-bit 5 Channels",
+         "35" : "48-bit 6 Channels",
+         "36" : "56-bit 7 Channels",
+         "37" : "64-bit 8 Channels",
+         "38" : "48-bit 3 Channels",
+         "39" : "64-bit 4 Channels",
+         "40" : "80-bit 5 Channels",
+         "41" : "96-bit 6 Channels",
+         "42" : "112-bit 7 Channels",
+         "43" : "128-bit 8 Channels",
+         "44" : "40-bit CMYK Alpha",
+         "45" : "80-bit CMYK Alpha",
+         "46" : "32-bit 3 Channels Alpha",
+         "47" : "40-bit 4 Channels Alpha",
+         "48" : "48-bit 5 Channels Alpha",
+         "49" : "56-bit 6 Channels Alpha",
+         "5" : "Black & White",
+         "50" : "64-bit 7 Channels Alpha",
+         "51" : "72-bit 8 Channels Alpha",
+         "52" : "64-bit 3 Channels Alpha",
+         "53" : "80-bit 4 Channels Alpha",
+         "54" : "96-bit 5 Channels Alpha",
+         "55" : "112-bit 6 Channels Alpha",
+         "56" : "128-bit 7 Channels Alpha",
+         "57" : "144-bit 8 Channels Alpha",
+         "58" : "64-bit RGBA Half",
+         "59" : "48-bit RGB Half",
+         "61" : "32-bit RGBE",
+         "62" : "16-bit Gray Half",
+         "63" : "32-bit Gray Fixed Point",
+         "8" : "8-bit Gray",
+         "9" : "16-bit BGR555"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc02" : {
+      "group1" : "IFD0",
+      "name" : "Transformation",
+      "print_conv" : {
+         "0" : "Horizontal (normal)",
+         "1" : "Mirror vertical",
+         "2" : "Mirror horizontal",
+         "3" : "Rotate 180",
+         "4" : "Rotate 90 CW",
+         "5" : "Mirror horizontal and rotate 90 CW",
+         "6" : "Mirror horizontal and rotate 270 CW",
+         "7" : "Rotate 270 CW"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc03" : {
+      "group1" : "IFD0",
+      "name" : "Uncompressed",
+      "print_conv" : {
+         "0" : "No",
+         "1" : "Yes"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc04" : {
+      "group1" : "IFD0",
+      "name" : "ImageType",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc80" : {
+      "group1" : "IFD0",
+      "name" : "ImageWidth",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc81" : {
+      "group1" : "IFD0",
+      "name" : "ImageHeight",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc82" : {
+      "group1" : "IFD0",
+      "name" : "WidthResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbc83" : {
+      "group1" : "IFD0",
+      "name" : "HeightResolution",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbcc0" : {
+      "group1" : "IFD0",
+      "name" : "ImageOffset",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbcc1" : {
+      "group1" : "IFD0",
+      "name" : "ImageByteCount",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbcc2" : {
+      "group1" : "IFD0",
+      "name" : "AlphaOffset",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbcc3" : {
+      "group1" : "IFD0",
+      "name" : "AlphaByteCount",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbcc4" : {
+      "group1" : "IFD0",
+      "name" : "ImageDataDiscard",
+      "print_conv" : {
+         "0" : "Full Resolution",
+         "1" : "Flexbits Discarded",
+         "2" : "HighPass Frequency Data Discarded",
+         "3" : "Highpass and LowPass Frequency Data Discarded"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xbcc5" : {
+      "group1" : "IFD0",
+      "name" : "AlphaDataDiscard",
+      "print_conv" : {
+         "0" : "Full Resolution",
+         "1" : "Flexbits Discarded",
+         "2" : "HighPass Frequency Data Discarded",
+         "3" : "Highpass and LowPass Frequency Data Discarded"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc427" : {
+      "group1" : "IFD0",
+      "name" : "OceScanjobDesc",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc428" : {
+      "group1" : "IFD0",
+      "name" : "OceApplicationSelector",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc429" : {
+      "group1" : "IFD0",
+      "name" : "OceIDNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc42a" : {
+      "group1" : "IFD0",
+      "name" : "OceImageLogic",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc44f" : {
+      "group1" : "IFD0",
+      "name" : "Annotations",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc4a5" : {
+      "group1" : "IFD0",
+      "name" : "PrintIM",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc519" : {
+      "group1" : "IFD0",
+      "name" : "HasselbladXML",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc51b" : {
+      "group1" : "IFD0",
+      "name" : "HasselbladExif",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc573" : {
+      "group1" : "IFD0",
+      "name" : "OriginalFileName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc580" : {
+      "group1" : "IFD0",
+      "name" : "USPTOOriginalContentType",
+      "print_conv" : {
+         "0" : "Text or Drawing",
+         "1" : "Grayscale",
+         "2" : "Color"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc5e0" : {
+      "group1" : "IFD0",
+      "name" : "CR2CFAPattern",
+      "print_conv" : {
+         "0 1 1 2" : "[Red,Green][Green,Blue]",
+         "1 0 2 1" : "[Green,Red][Blue,Green]",
+         "1 2 0 1" : "[Green,Blue][Red,Green]",
+         "2 1 1 0" : "[Blue,Green][Green,Red]"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc612" : {
+      "group1" : "IFD0",
+      "name" : "DNGVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc613" : {
+      "group1" : "IFD0",
+      "name" : "DNGBackwardVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc614" : {
+      "group1" : "IFD0",
+      "name" : "UniqueCameraModel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc615" : {
+      "group1" : "IFD0",
+      "name" : "LocalizedCameraModel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc616" : {
+      "group1" : "IFD0",
+      "name" : "CFAPlaneColor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc617" : {
+      "group1" : "IFD0",
+      "name" : "CFALayout",
+      "print_conv" : {
+         "1" : "Rectangular",
+         "2" : "Even columns offset down 1/2 row",
+         "3" : "Even columns offset up 1/2 row",
+         "4" : "Even rows offset right 1/2 column",
+         "5" : "Even rows offset left 1/2 column",
+         "6" : "Even rows offset up by 1/2 row, even columns offset left by 1/2 column",
+         "7" : "Even rows offset up by 1/2 row, even columns offset right by 1/2 column",
+         "8" : "Even rows offset down by 1/2 row, even columns offset left by 1/2 column",
+         "9" : "Even rows offset down by 1/2 row, even columns offset right by 1/2 column"
+      },
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc618" : {
+      "group1" : "IFD0",
+      "name" : "LinearizationTable",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc619" : {
+      "group1" : "IFD0",
+      "name" : "BlackLevelRepeatDim",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc61a" : {
+      "group1" : "IFD0",
+      "name" : "BlackLevel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc61b" : {
+      "group1" : "IFD0",
+      "name" : "BlackLevelDeltaH",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc61c" : {
+      "group1" : "IFD0",
+      "name" : "BlackLevelDeltaV",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc61d" : {
+      "group1" : "IFD0",
+      "name" : "WhiteLevel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc61e" : {
+      "group1" : "IFD0",
+      "name" : "DefaultScale",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc61f" : {
+      "group1" : "IFD0",
+      "name" : "DefaultCropOrigin",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc620" : {
+      "group1" : "IFD0",
+      "name" : "DefaultCropSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc621" : {
+      "group1" : "IFD0",
+      "name" : "ColorMatrix1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc622" : {
+      "group1" : "IFD0",
+      "name" : "ColorMatrix2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc623" : {
+      "group1" : "IFD0",
+      "name" : "CameraCalibration1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc624" : {
+      "group1" : "IFD0",
+      "name" : "CameraCalibration2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc625" : {
+      "group1" : "IFD0",
+      "name" : "ReductionMatrix1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc626" : {
+      "group1" : "IFD0",
+      "name" : "ReductionMatrix2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc627" : {
+      "group1" : "IFD0",
+      "name" : "AnalogBalance",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc628" : {
+      "group1" : "IFD0",
+      "name" : "AsShotNeutral",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc629" : {
+      "group1" : "IFD0",
+      "name" : "AsShotWhiteXY",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc62a" : {
+      "group1" : "IFD0",
+      "name" : "BaselineExposure",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc62b" : {
+      "group1" : "IFD0",
+      "name" : "BaselineNoise",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc62c" : {
+      "group1" : "IFD0",
+      "name" : "BaselineSharpness",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc62d" : {
+      "group1" : "IFD0",
+      "name" : "BayerGreenSplit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc62e" : {
+      "group1" : "IFD0",
+      "name" : "LinearResponseLimit",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc62f" : {
+      "group1" : "IFD0",
+      "name" : "CameraSerialNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc630" : {
+      "group1" : "IFD0",
+      "name" : "DNGLensInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc631" : {
+      "group1" : "IFD0",
+      "name" : "ChromaBlurRadius",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc632" : {
+      "group1" : "IFD0",
+      "name" : "AntiAliasStrength",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc633" : {
+      "group1" : "IFD0",
+      "name" : "ShadowScale",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc634" : {
+      "group1" : "SR2",
+      "name" : "SR2Private",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc635" : {
+      "group1" : "IFD0",
+      "name" : "MakerNoteSafety",
+      "print_conv" : {
+         "0" : "Unsafe",
+         "1" : "Safe"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc640" : {
+      "group1" : "IFD0",
+      "name" : "RawImageSegmentation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc65a" : {
+      "group1" : "IFD0",
+      "name" : "CalibrationIlluminant1",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Daylight",
+         "10" : "Cloudy",
+         "11" : "Shade",
+         "12" : "Daylight Fluorescent",
+         "13" : "Day White Fluorescent",
+         "14" : "Cool White Fluorescent",
+         "15" : "White Fluorescent",
+         "16" : "Warm White Fluorescent",
+         "17" : "Standard Light A",
+         "18" : "Standard Light B",
+         "19" : "Standard Light C",
+         "2" : "Fluorescent",
+         "20" : "D55",
+         "21" : "D65",
+         "22" : "D75",
+         "23" : "D50",
+         "24" : "ISO Studio Tungsten",
+         "25" : "Daylight",
+         "255" : "Other",
+         "26" : "Day White",
+         "27" : "Cool White",
+         "28" : "White",
+         "29" : "Warm White",
+         "3" : "Tungsten (Incandescent)",
+         "30" : "Daylight LED",
+         "31" : "Day White LED",
+         "32" : "Cool White LED",
+         "33" : "White LED",
+         "34" : "Warm White LED",
+         "4" : "Flash",
+         "9" : "Fine Weather"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc65b" : {
+      "group1" : "IFD0",
+      "name" : "CalibrationIlluminant2",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Daylight",
+         "10" : "Cloudy",
+         "11" : "Shade",
+         "12" : "Daylight Fluorescent",
+         "13" : "Day White Fluorescent",
+         "14" : "Cool White Fluorescent",
+         "15" : "White Fluorescent",
+         "16" : "Warm White Fluorescent",
+         "17" : "Standard Light A",
+         "18" : "Standard Light B",
+         "19" : "Standard Light C",
+         "2" : "Fluorescent",
+         "20" : "D55",
+         "21" : "D65",
+         "22" : "D75",
+         "23" : "D50",
+         "24" : "ISO Studio Tungsten",
+         "25" : "Daylight",
+         "255" : "Other",
+         "26" : "Day White",
+         "27" : "Cool White",
+         "28" : "White",
+         "29" : "Warm White",
+         "3" : "Tungsten (Incandescent)",
+         "30" : "Daylight LED",
+         "31" : "Day White LED",
+         "32" : "Cool White LED",
+         "33" : "White LED",
+         "34" : "Warm White LED",
+         "4" : "Flash",
+         "9" : "Fine Weather"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc65c" : {
+      "group1" : "IFD0",
+      "name" : "BestQualityScale",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc65d" : {
+      "group1" : "IFD0",
+      "name" : "RawDataUniqueID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc660" : {
+      "group1" : "IFD0",
+      "name" : "AliasLayerMetadata",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc68b" : {
+      "group1" : "IFD0",
+      "name" : "OriginalRawFileName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc68c" : {
+      "group1" : "IFD0",
+      "name" : "OriginalRawFileData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc68d" : {
+      "group1" : "IFD0",
+      "name" : "ActiveArea",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc68e" : {
+      "group1" : "IFD0",
+      "name" : "MaskedAreas",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc68f" : {
+      "group1" : "IFD0",
+      "name" : "AsShotICCProfile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc690" : {
+      "group1" : "IFD0",
+      "name" : "AsShotPreProfileMatrix",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc691" : {
+      "group1" : "IFD0",
+      "name" : "CurrentICCProfile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc692" : {
+      "group1" : "IFD0",
+      "name" : "CurrentPreProfileMatrix",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc6bf" : {
+      "group1" : "IFD0",
+      "name" : "ColorimetricReference",
+      "print_conv" : {
+         "0" : "Scene-referred",
+         "1" : "Output-referred (ICC Profile Dynamic Range)",
+         "2" : "Output-referred (High Dyanmic Range)"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc6c5" : {
+      "group1" : "IFD0",
+      "name" : "SRawType",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc6d2" : {
+      "group1" : "IFD0",
+      "name" : "PanasonicTitle",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc6d3" : {
+      "group1" : "IFD0",
+      "name" : "PanasonicTitle2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc6f3" : {
+      "group1" : "IFD0",
+      "name" : "CameraCalibrationSig",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc6f4" : {
+      "group1" : "IFD0",
+      "name" : "ProfileCalibrationSig",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc6f5" : {
+      "group1" : "ProfileIFD",
+      "name" : "ProfileIFD",
+      "print_conv" : null,
+      "sub_directory" : "SubIFD",
+      "writable" : null
+   },
+   "0xc6f6" : {
+      "group1" : "IFD0",
+      "name" : "AsShotProfileName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc6f7" : {
+      "group1" : "IFD0",
+      "name" : "NoiseReductionApplied",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc6f8" : {
+      "group1" : "IFD0",
+      "name" : "ProfileName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc6f9" : {
+      "group1" : "IFD0",
+      "name" : "ProfileHueSatMapDims",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc6fa" : {
+      "group1" : "IFD0",
+      "name" : "ProfileHueSatMapData1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "float"
+   },
+   "0xc6fb" : {
+      "group1" : "IFD0",
+      "name" : "ProfileHueSatMapData2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "float"
+   },
+   "0xc6fc" : {
+      "group1" : "IFD0",
+      "name" : "ProfileToneCurve",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "float"
+   },
+   "0xc6fd" : {
+      "group1" : "IFD0",
+      "name" : "ProfileEmbedPolicy",
+      "print_conv" : {
+         "0" : "Allow Copying",
+         "1" : "Embed if Used",
+         "2" : "Never Embed",
+         "3" : "No Restrictions"
+      },
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc6fe" : {
+      "group1" : "IFD0",
+      "name" : "ProfileCopyright",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc714" : {
+      "group1" : "IFD0",
+      "name" : "ForwardMatrix1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc715" : {
+      "group1" : "IFD0",
+      "name" : "ForwardMatrix2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc716" : {
+      "group1" : "IFD0",
+      "name" : "PreviewApplicationName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc717" : {
+      "group1" : "IFD0",
+      "name" : "PreviewApplicationVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc718" : {
+      "group1" : "IFD0",
+      "name" : "PreviewSettingsName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc719" : {
+      "group1" : "IFD0",
+      "name" : "PreviewSettingsDigest",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc71a" : {
+      "group1" : "IFD0",
+      "name" : "PreviewColorSpace",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Gray Gamma 2.2",
+         "2" : "sRGB",
+         "3" : "Adobe RGB",
+         "4" : "ProPhoto RGB"
+      },
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc71b" : {
+      "group1" : "IFD0",
+      "name" : "PreviewDateTime",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc71c" : {
+      "group1" : "IFD0",
+      "name" : "RawImageDigest",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc71d" : {
+      "group1" : "IFD0",
+      "name" : "OriginalRawFileDigest",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc71e" : {
+      "group1" : "IFD0",
+      "name" : "SubTileBlockSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc71f" : {
+      "group1" : "IFD0",
+      "name" : "RowInterleaveFactor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc725" : {
+      "group1" : "IFD0",
+      "name" : "ProfileLookTableDims",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc726" : {
+      "group1" : "IFD0",
+      "name" : "ProfileLookTableData",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "float"
+   },
+   "0xc740" : {
+      "group1" : "IFD0",
+      "name" : "OpcodeList1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc741" : {
+      "group1" : "IFD0",
+      "name" : "OpcodeList2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc74e" : {
+      "group1" : "IFD0",
+      "name" : "OpcodeList3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xc761" : {
+      "group1" : "IFD0",
+      "name" : "NoiseProfile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0xc763" : {
+      "group1" : "IFD0",
+      "name" : "TimeCodes",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc764" : {
+      "group1" : "IFD0",
+      "name" : "FrameRate",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc772" : {
+      "group1" : "IFD0",
+      "name" : "TStop",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc789" : {
+      "group1" : "IFD0",
+      "name" : "ReelName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc791" : {
+      "group1" : "IFD0",
+      "name" : "OriginalDefaultFinalSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc792" : {
+      "group1" : "IFD0",
+      "name" : "OriginalBestQualitySize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc793" : {
+      "group1" : "IFD0",
+      "name" : "OriginalDefaultCropSize",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc7a1" : {
+      "group1" : "IFD0",
+      "name" : "CameraLabel",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xc7a3" : {
+      "group1" : "IFD0",
+      "name" : "ProfileHueSatMapEncoding",
+      "print_conv" : {
+         "0" : "Linear",
+         "1" : "sRGB"
+      },
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc7a4" : {
+      "group1" : "IFD0",
+      "name" : "ProfileLookTableEncoding",
+      "print_conv" : {
+         "0" : "Linear",
+         "1" : "sRGB"
+      },
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc7a5" : {
+      "group1" : "IFD0",
+      "name" : "BaselineExposureOffset",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xc7a6" : {
+      "group1" : "IFD0",
+      "name" : "DefaultBlackRender",
+      "print_conv" : {
+         "0" : "Auto",
+         "1" : "None"
+      },
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc7a7" : {
+      "group1" : "IFD0",
+      "name" : "NewRawImageDigest",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0xc7a8" : {
+      "group1" : "IFD0",
+      "name" : "RawToPreviewGain",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "double"
+   },
+   "0xc7aa" : {
+      "group1" : "IFD0",
+      "name" : "CacheVersion",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xc7b5" : {
+      "group1" : "IFD0",
+      "name" : "DefaultUserCrop",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc7d5" : {
+      "group1" : "IFD0",
+      "name" : "NikonNEFInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc7d7" : {
+      "group1" : "IFD0",
+      "name" : "ZIFMetadata",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc7d8" : {
+      "group1" : "IFD0",
+      "name" : "ZIFAnnotations",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xc7e9" : {
+      "group1" : "IFD0",
+      "name" : "DepthFormat",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Linear",
+         "2" : "Inverse"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc7ea" : {
+      "group1" : "IFD0",
+      "name" : "DepthNear",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc7eb" : {
+      "group1" : "IFD0",
+      "name" : "DepthFar",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0xc7ec" : {
+      "group1" : "IFD0",
+      "name" : "DepthUnits",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Meters"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc7ed" : {
+      "group1" : "IFD0",
+      "name" : "DepthMeasureType",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Optical Axis",
+         "2" : "Optical Ray"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xc7ee" : {
+      "group1" : "IFD0",
+      "name" : "EnhanceParams",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xcd2d" : {
+      "group1" : "IFD0",
+      "name" : "ProfileGainTableMap",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd2e" : {
+      "group1" : "IFD0",
+      "name" : "SemanticName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xcd30" : {
+      "group1" : "IFD0",
+      "name" : "SemanticInstanceID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xcd31" : {
+      "group1" : "IFD0",
+      "name" : "CalibrationIlluminant3",
+      "print_conv" : {
+         "0" : "Unknown",
+         "1" : "Daylight",
+         "10" : "Cloudy",
+         "11" : "Shade",
+         "12" : "Daylight Fluorescent",
+         "13" : "Day White Fluorescent",
+         "14" : "Cool White Fluorescent",
+         "15" : "White Fluorescent",
+         "16" : "Warm White Fluorescent",
+         "17" : "Standard Light A",
+         "18" : "Standard Light B",
+         "19" : "Standard Light C",
+         "2" : "Fluorescent",
+         "20" : "D55",
+         "21" : "D65",
+         "22" : "D75",
+         "23" : "D50",
+         "24" : "ISO Studio Tungsten",
+         "25" : "Daylight",
+         "255" : "Other",
+         "26" : "Day White",
+         "27" : "Cool White",
+         "28" : "White",
+         "29" : "Warm White",
+         "3" : "Tungsten (Incandescent)",
+         "30" : "Daylight LED",
+         "31" : "Day White LED",
+         "32" : "Cool White LED",
+         "33" : "White LED",
+         "34" : "Warm White LED",
+         "4" : "Flash",
+         "9" : "Fine Weather"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0xcd32" : {
+      "group1" : "IFD0",
+      "name" : "CameraCalibration3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xcd33" : {
+      "group1" : "IFD0",
+      "name" : "ColorMatrix3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xcd34" : {
+      "group1" : "IFD0",
+      "name" : "ForwardMatrix3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xcd35" : {
+      "group1" : "IFD0",
+      "name" : "IlluminantData1",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd36" : {
+      "group1" : "IFD0",
+      "name" : "IlluminantData2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd37" : {
+      "group1" : "IFD0",
+      "name" : "IlluminantData3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd38" : {
+      "group1" : "IFD0",
+      "name" : "MaskSubArea",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xcd39" : {
+      "group1" : "IFD0",
+      "name" : "ProfileHueSatMapData3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "float"
+   },
+   "0xcd3a" : {
+      "group1" : "IFD0",
+      "name" : "ReductionMatrix3",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64s"
+   },
+   "0xcd3f" : {
+      "group1" : "IFD0",
+      "name" : "RGBTables",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd40" : {
+      "group1" : "IFD0",
+      "name" : "ProfileGainTableMap2",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd41" : {
+      "group1" : "IFD0",
+      "name" : "JUMBF",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xcd43" : {
+      "group1" : "IFD0",
+      "name" : "ColumnInterleaveFactor",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xcd44" : {
+      "group1" : "IFD0",
+      "name" : "ImageSequenceInfo",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd46" : {
+      "group1" : "IFD0",
+      "name" : "ImageStats",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd47" : {
+      "group1" : "IFD0",
+      "name" : "ProfileDynamicRange",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xcd48" : {
+      "group1" : "IFD0",
+      "name" : "ProfileGroupName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xcd49" : {
+      "group1" : "IFD0",
+      "name" : "JXLDistance",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "float"
+   },
+   "0xcd4a" : {
+      "group1" : "IFD0",
+      "name" : "JXLEffort",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xcd4b" : {
+      "group1" : "IFD0",
+      "name" : "JXLDecodeSpeed",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32u"
+   },
+   "0xcea1" : {
+      "group1" : "IFD0",
+      "name" : "SEAL",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xea1c" : {
+      "group1" : "IFD0",
+      "name" : "Padding",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0xea1d" : {
+      "group1" : "IFD0",
+      "name" : "OffsetSchema",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int32s"
+   },
+   "0xfde8" : {
+      "group1" : "IFD0",
+      "name" : "OwnerName",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfde9" : {
+      "group1" : "IFD0",
+      "name" : "SerialNumber",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfdea" : {
+      "group1" : "IFD0",
+      "name" : "Lens",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe00" : {
+      "group1" : "KDC_IFD",
+      "name" : "KDC_IFD",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : null
+   },
+   "0xfe4c" : {
+      "group1" : "IFD0",
+      "name" : "RawFile",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe4d" : {
+      "group1" : "IFD0",
+      "name" : "Converter",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe4e" : {
+      "group1" : "IFD0",
+      "name" : "WhiteBalance",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe51" : {
+      "group1" : "IFD0",
+      "name" : "Exposure",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe52" : {
+      "group1" : "IFD0",
+      "name" : "Shadows",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe53" : {
+      "group1" : "IFD0",
+      "name" : "Brightness",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe54" : {
+      "group1" : "IFD0",
+      "name" : "Contrast",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe55" : {
+      "group1" : "IFD0",
+      "name" : "Saturation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe56" : {
+      "group1" : "IFD0",
+      "name" : "Sharpness",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe57" : {
+      "group1" : "IFD0",
+      "name" : "Smoothness",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0xfe58" : {
+      "group1" : "IFD0",
+      "name" : "MoireFilter",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   }
+}

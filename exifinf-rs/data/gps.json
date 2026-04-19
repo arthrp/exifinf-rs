@@ -1,0 +1,252 @@
+{
+   "0x0000" : {
+      "group1" : "GPS",
+      "name" : "GPSVersionID",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x0001" : {
+      "group1" : "GPS",
+      "name" : "GPSLatitudeRef",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0002" : {
+      "group1" : "GPS",
+      "name" : "GPSLatitude",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0003" : {
+      "group1" : "GPS",
+      "name" : "GPSLongitudeRef",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0004" : {
+      "group1" : "GPS",
+      "name" : "GPSLongitude",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0005" : {
+      "group1" : "GPS",
+      "name" : "GPSAltitudeRef",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "int8u"
+   },
+   "0x0006" : {
+      "group1" : "GPS",
+      "name" : "GPSAltitude",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0007" : {
+      "group1" : "GPS",
+      "name" : "GPSTimeStamp",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0008" : {
+      "group1" : "GPS",
+      "name" : "GPSSatellites",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0009" : {
+      "group1" : "GPS",
+      "name" : "GPSStatus",
+      "print_conv" : {
+         "A" : "Measurement Active",
+         "V" : "Measurement Void"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x000a" : {
+      "group1" : "GPS",
+      "name" : "GPSMeasureMode",
+      "print_conv" : {
+         "2" : "2-Dimensional Measurement",
+         "3" : "3-Dimensional Measurement"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x000b" : {
+      "group1" : "GPS",
+      "name" : "GPSDOP",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x000c" : {
+      "group1" : "GPS",
+      "name" : "GPSSpeedRef",
+      "print_conv" : {
+         "K" : "km/h",
+         "M" : "mph",
+         "N" : "knots"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x000d" : {
+      "group1" : "GPS",
+      "name" : "GPSSpeed",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x000e" : {
+      "group1" : "GPS",
+      "name" : "GPSTrackRef",
+      "print_conv" : {
+         "M" : "Magnetic North",
+         "T" : "True North"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x000f" : {
+      "group1" : "GPS",
+      "name" : "GPSTrack",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0010" : {
+      "group1" : "GPS",
+      "name" : "GPSImgDirectionRef",
+      "print_conv" : {
+         "M" : "Magnetic North",
+         "T" : "True North"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0011" : {
+      "group1" : "GPS",
+      "name" : "GPSImgDirection",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0012" : {
+      "group1" : "GPS",
+      "name" : "GPSMapDatum",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0013" : {
+      "group1" : "GPS",
+      "name" : "GPSDestLatitudeRef",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0014" : {
+      "group1" : "GPS",
+      "name" : "GPSDestLatitude",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0015" : {
+      "group1" : "GPS",
+      "name" : "GPSDestLongitudeRef",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0016" : {
+      "group1" : "GPS",
+      "name" : "GPSDestLongitude",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0017" : {
+      "group1" : "GPS",
+      "name" : "GPSDestBearingRef",
+      "print_conv" : {
+         "M" : "Magnetic North",
+         "T" : "True North"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x0018" : {
+      "group1" : "GPS",
+      "name" : "GPSDestBearing",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x0019" : {
+      "group1" : "GPS",
+      "name" : "GPSDestDistanceRef",
+      "print_conv" : {
+         "K" : "Kilometers",
+         "M" : "Miles",
+         "N" : "Nautical Miles"
+      },
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x001a" : {
+      "group1" : "GPS",
+      "name" : "GPSDestDistance",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   },
+   "0x001b" : {
+      "group1" : "GPS",
+      "name" : "GPSProcessingMethod",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x001c" : {
+      "group1" : "GPS",
+      "name" : "GPSAreaInformation",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "undef"
+   },
+   "0x001d" : {
+      "group1" : "GPS",
+      "name" : "GPSDateStamp",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "string"
+   },
+   "0x001e" : {
+      "group1" : "GPS",
+      "name" : "GPSDifferential",
+      "print_conv" : {
+         "0" : "No Correction",
+         "1" : "Differential Corrected"
+      },
+      "sub_directory" : null,
+      "writable" : "int16u"
+   },
+   "0x001f" : {
+      "group1" : "GPS",
+      "name" : "GPSHPositioningError",
+      "print_conv" : null,
+      "sub_directory" : null,
+      "writable" : "rational64u"
+   }
+}

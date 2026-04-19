@@ -1,0 +1,473 @@
+{
+   "chunks" : {
+      "IHDR" : {
+         "group1" : "PNG",
+         "name" : "ImageHeader",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "PLTE" : {
+         "group1" : "PNG",
+         "name" : "Palette",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "acTL" : {
+         "group1" : "PNG",
+         "name" : "AnimationControl",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "bKGD" : {
+         "group1" : "PNG",
+         "name" : "BackgroundColor",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "cHRM" : {
+         "group1" : "PNG",
+         "name" : "PrimaryChromaticities",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "cICP" : {
+         "group1" : "PNG",
+         "name" : "CICodePoints",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "caBX" : {
+         "group1" : "PNG",
+         "name" : "JUMBF",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "cpIp" : {
+         "group1" : "PNG",
+         "name" : "OLEInfo",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "dSIG" : {
+         "group1" : "PNG",
+         "name" : "DigitalSignature",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "eXIf" : {
+         "group1" : "PNG",
+         "name" : "eXIf",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "fRAc" : {
+         "group1" : "PNG",
+         "name" : "FractalParameters",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "gAMA" : {
+         "group1" : "PNG",
+         "name" : "Gamma",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "gIFg" : {
+         "group1" : "PNG",
+         "name" : "GIFGraphicControlExtension",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "gIFt" : {
+         "group1" : "PNG",
+         "name" : "GIFPlainTextExtension",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "gIFx" : {
+         "group1" : "PNG",
+         "name" : "GIFApplicationExtension",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "gdAT" : {
+         "group1" : "PNG",
+         "name" : "GainMapImage",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "hIST" : {
+         "group1" : "PNG",
+         "name" : "PaletteHistogram",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "iCCP" : {
+         "group1" : "PNG",
+         "name" : "ICC_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "iDOT" : {
+         "group1" : "PNG",
+         "name" : "AppleDataOffsets",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "iTXt" : {
+         "group1" : "PNG",
+         "name" : "InternationalText",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "oFFs" : {
+         "group1" : "PNG",
+         "name" : "ImageOffset",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "pCAL" : {
+         "group1" : "PNG",
+         "name" : "PixelCalibration",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "pHYs" : {
+         "group1" : "PNG",
+         "name" : "PhysicalPixel",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "sBIT" : {
+         "group1" : "PNG",
+         "name" : "SignificantBits",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "sCAL" : {
+         "group1" : "PNG",
+         "name" : "SubjectScale",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "sPLT" : {
+         "group1" : "PNG",
+         "name" : "SuggestedPalette",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "sRGB" : {
+         "group1" : "PNG",
+         "name" : "SRGBRendering",
+         "print_conv" : {
+            "0" : "Perceptual",
+            "1" : "Relative Colorimetric",
+            "2" : "Saturation",
+            "3" : "Absolute Colorimetric"
+         },
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "sTER" : {
+         "group1" : "PNG",
+         "name" : "StereoImage",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "seAl" : {
+         "group1" : "PNG",
+         "name" : "SEAL",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "tEXt" : {
+         "group1" : "PNG",
+         "name" : "TextualData",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "tIME" : {
+         "group1" : "PNG",
+         "name" : "ModifyDate",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "tRNS" : {
+         "group1" : "PNG",
+         "name" : "Transparency",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "tXMP" : {
+         "group1" : "PNG",
+         "name" : "XMP",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "vpAg" : {
+         "group1" : "PNG",
+         "name" : "VirtualPage",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "zTXt" : {
+         "group1" : "PNG",
+         "name" : "CompressedText",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      },
+      "zxIf" : {
+         "group1" : "PNG",
+         "name" : "zxIf",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : null
+      }
+   },
+   "textual" : {
+      "Artist" : {
+         "group1" : "PNG",
+         "name" : "Artist",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Author" : {
+         "group1" : "PNG",
+         "name" : "Author",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Collection" : {
+         "group1" : "PNG",
+         "name" : "Collection",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Comment" : {
+         "group1" : "PNG",
+         "name" : "Comment",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Copyright" : {
+         "group1" : "PNG",
+         "name" : "Copyright",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Creation Time" : {
+         "group1" : "PNG",
+         "name" : "CreationTime",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Description" : {
+         "group1" : "PNG",
+         "name" : "Description",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Disclaimer" : {
+         "group1" : "PNG",
+         "name" : "Disclaimer",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Document" : {
+         "group1" : "PNG",
+         "name" : "Document",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Label" : {
+         "group1" : "PNG",
+         "name" : "Label",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Make" : {
+         "group1" : "PNG",
+         "name" : "Make",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Model" : {
+         "group1" : "PNG",
+         "name" : "Model",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type 8bim" : {
+         "group1" : "PNG",
+         "name" : "Photoshop_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type APP1" : {
+         "group1" : "PNG",
+         "name" : "APP1_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type exif" : {
+         "group1" : "PNG",
+         "name" : "EXIF_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type icc" : {
+         "group1" : "PNG",
+         "name" : "ICC_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type icm" : {
+         "group1" : "PNG",
+         "name" : "ICC_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type iptc" : {
+         "group1" : "PNG",
+         "name" : "IPTC_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Raw profile type xmp" : {
+         "group1" : "PNG",
+         "name" : "XMP_Profile",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Software" : {
+         "group1" : "PNG",
+         "name" : "Software",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Source" : {
+         "group1" : "PNG",
+         "name" : "Source",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "TimeStamp" : {
+         "group1" : "PNG",
+         "name" : "TimeStamp",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Title" : {
+         "group1" : "PNG",
+         "name" : "Title",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "URL" : {
+         "group1" : "PNG",
+         "name" : "URL",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "Warning" : {
+         "group1" : "PNG",
+         "name" : "PNGWarning",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "XML:com.adobe.xmp" : {
+         "group1" : "PNG",
+         "name" : "XMP",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "aesthetic_score" : {
+         "group1" : "PNG",
+         "name" : "AestheticScore",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "create-date" : {
+         "group1" : "PNG",
+         "name" : "CreateDate",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "modify-date" : {
+         "group1" : "PNG",
+         "name" : "ModDate",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      },
+      "parameters" : {
+         "group1" : "PNG",
+         "name" : "parameters",
+         "print_conv" : null,
+         "sub_directory" : null,
+         "writable" : "string"
+      }
+   }
+}
