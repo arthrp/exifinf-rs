@@ -1,6 +1,6 @@
 # exifinf-rs
 
-Partial Rust port of [ExifTool](https://exiftool.org/) utility. Read-only EXIF metadata extraction in Rust for **JPEG**, **TIFF**, and **PNG**. Tag naming and formatting follow a **subset of [ExifTool](https://exiftool.org/) semantics**, so output should feel familiar if you use that tool elsewhere.
+Partial Rust port of [ExifTool](https://exiftool.org/) utility. Read-only metadata extraction in Rust for **JPEG**, **TIFF**, and **PNG**, **QuickTime / ISO BMFF** containers (**MOV/MP4/M4A/HEIC** and other). Tag naming and formatting follow a **subset of [ExifTool](https://exiftool.org/) semantics**, so output should feel familiar if you use that tool elsewhere.
 
 ## Workspace
 
@@ -12,7 +12,9 @@ Partial Rust port of [ExifTool](https://exiftool.org/) utility. Read-only EXIF m
 ## CLI
 
 ```sh
-cargo run -p exifinf-cli -- path/to/image.jpg
+cargo run -p exifinf-cli -- path/to/photo.jpg
+cargo run -p exifinf-cli -- path/to/video.mov
+cargo run -p exifinf-cli -- path/to/photo.heic
 ```
 
 Prints one line per tag: `[group] name = value`.
@@ -23,7 +25,7 @@ Prints one line per tag: `[group] name = value`.
 use std::path::Path;
 use exifinf_rs::{extract_from_path, format_record};
 
-let meta = extract_from_path(Path::new("photo.jpg"))?;
+let meta = extract_from_path(Path::new("photo.jpg"))?; // also MOV, MP4, HEIC, …
 for t in &meta.tags {
     println!("{} = {}", t.name, format_record(t, &meta.tags));
 }

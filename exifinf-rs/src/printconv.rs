@@ -71,16 +71,14 @@ pub fn format_record(rec: &TagRecord, all: &[TagRecord]) -> String {
                 return s;
             }
         }
-        if rec.name == "GPSLatitudeRef" {
-            if let Some(s) = gps::format_lat_ref(&rec.value) {
+        if rec.name == "GPSLatitudeRef"
+            && let Some(s) = gps::format_lat_ref(&rec.value) {
                 return s;
             }
-        }
-        if rec.name == "GPSLongitudeRef" {
-            if let Some(s) = gps::format_lon_ref(&rec.value) {
+        if rec.name == "GPSLongitudeRef"
+            && let Some(s) = gps::format_lon_ref(&rec.value) {
                 return s;
             }
-        }
     }
 
     if let Some(id) = rec.tag_id {
@@ -90,17 +88,15 @@ pub fn format_record(rec: &TagRecord, all: &[TagRecord]) -> String {
         } else {
             lookup_exif(id)
         };
-        if let Some(d) = def {
-            if let Some(s) = apply_map(d.print_conv, &rec.value) {
+        if let Some(d) = def
+            && let Some(s) = apply_map(d.print_conv, &rec.value) {
                 return s;
             }
-        }
-    } else if let Some(d) = lookup_png_text_by_tagname(&rec.name) {
-        if rec.group == d.group1 || rec.group == "PNG" {
-            if let Some(s) = apply_map(d.print_conv, &rec.value) {
-                return s;
-            }
-        }
+    } else if let Some(d) = lookup_png_text_by_tagname(&rec.name)
+        && (rec.group == d.group1 || rec.group == "PNG")
+        && let Some(s) = apply_map(d.print_conv, &rec.value)
+    {
+        return s;
     }
 
     rec.value.to_string()

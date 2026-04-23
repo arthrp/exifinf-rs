@@ -5,7 +5,7 @@ use crate::tiff;
 const EXIF_HDR: &[u8] = b"Exif\0\0";
 
 pub fn parse(meta: &mut Metadata, data: &[u8]) -> Result<()> {
-    if data.len() < 4 || &data[0..2] != [0xff, 0xd8] {
+    if data.len() < 4 || data[0..2] != [0xff, 0xd8] {
         return Err(Error::BadJpeg);
     }
     let segs = collect_segments_until_sos(data)?;
@@ -24,8 +24,8 @@ pub fn parse(meta: &mut Metadata, data: &[u8]) -> Result<()> {
             }
             i = j;
             tiff::parse_exif_slice(meta, &buf)?;
-        } else if is_sof(*marker) {
-            if let Some((w, h, bps, comps)) = parse_sof(payload) {
+        } else if is_sof(*marker)
+            && let Some((w, h, bps, comps)) = parse_sof(payload) {
                 meta.push("File", "ImageWidth", crate::value::Value::U32(w));
                 meta.push("File", "ImageHeight", crate::value::Value::U32(h));
                 meta.push("File", "BitsPerSample", crate::value::Value::U8(bps));
@@ -35,7 +35,6 @@ pub fn parse(meta: &mut Metadata, data: &[u8]) -> Result<()> {
                     crate::value::Value::U8(comps),
                 );
             }
-        }
         i += 1;
     }
     Ok(())

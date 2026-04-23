@@ -74,7 +74,7 @@ fn emit_png(buf: &mut String, png: &PngRoot) {
     }
     buf.push_str("];\n\n");
 
-    buf.push_str("pub static PNG_TEXTUAL: &[(&'static str, PngTextDef)] = &[\n");
+    buf.push_str("pub static PNG_TEXTUAL: &[(&str, PngTextDef)] = &[\n");
     for (kw, v) in &png.textual {
         let def = emit_png_text_def(v);
         let kw_lit = format!("{:?}", kw);

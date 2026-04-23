@@ -10,6 +10,7 @@ pub enum Error {
     BadTiff,
     BadPng,
     BadJpeg,
+    BadQt,
     Decompress(String),
     Unsupported(&'static str),
 }
@@ -24,6 +25,7 @@ impl fmt::Display for Error {
             Error::BadTiff => write!(f, "invalid TIFF structure"),
             Error::BadPng => write!(f, "invalid PNG structure"),
             Error::BadJpeg => write!(f, "invalid JPEG structure"),
+            Error::BadQt => write!(f, "invalid QuickTime/MP4 (ISO BMFF) structure"),
             Error::Decompress(s) => write!(f, "decompression failed: {s}"),
             Error::Unsupported(s) => write!(f, "unsupported: {s}"),
         }

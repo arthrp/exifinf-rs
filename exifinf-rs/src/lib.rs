@@ -1,4 +1,4 @@
-//! Read-only EXIF extraction for JPEG, TIFF, and PNG (subset of ExifTool semantics).
+//! Read-only EXIF extraction for JPEG, TIFF, PNG, and QuickTime/MP4/HEIC (BMFF) metadata (subset of ExifTool semantics).
 
 mod byteorder;
 mod detect;
@@ -14,6 +14,9 @@ mod tables;
 mod tag_def;
 mod tiff;
 mod value;
+mod iso6709;
+mod qt;
+mod qt_tags;
 
 pub use error::{Error, Result};
 pub use metadata::{Metadata, TagRecord};
@@ -30,6 +33,7 @@ pub fn extract(bytes: &[u8]) -> Result<Metadata> {
         FileType::Jpeg => jpeg::parse(&mut meta, bytes)?,
         FileType::Tiff => tiff::parse_exif_slice(&mut meta, bytes)?,
         FileType::Png => png::parse(&mut meta, bytes)?,
+        FileType::Qt => qt::parse(&mut meta, bytes)?,
     }
     Ok(meta)
 }
@@ -80,6 +84,14 @@ mod tests {
             .find(|t| t.name == "ImageDescription")
             .unwrap();
         assert_eq!(d.value, Value::Ascii("test".into()));
+    }
+
+    #[test]
+    fn detect_qt() {
+        let mov = [0, 0, 0, 8, b'm', b'o', b'o', b'v'];
+        assert_eq!(detect::detect(&mov).unwrap(), FileType::Qt);
+        let ftyp = [0, 0, 0, 0x1c, b'f', b't', b'y', b'p'];
+        assert_eq!(detect::detect(&ftyp).unwrap(), FileType::Qt);
     }
 
     #[test]
