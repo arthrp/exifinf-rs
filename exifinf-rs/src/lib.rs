@@ -1,31 +1,100 @@
-//! Read-only EXIF extraction for JPEG, TIFF, PNG, and QuickTime/MP4/HEIC (BMFF) metadata (subset of ExifTool semantics).
+//! EXIF / metadata: read for JPEG, TIFF, PNG, and QuickTime/MP4/HEIC; strip for JPEG, PNG, QT.
 
 mod byteorder;
 mod detect;
 mod error;
 mod format;
 mod gps;
+mod iso6709;
 mod jpeg;
+mod jpeg_strip;
 mod metadata;
 mod png;
+mod png_strip;
 mod printconv;
+mod qt;
+mod qt_strip;
+mod qt_tags;
 #[allow(dead_code)]
 mod tables;
 mod tag_def;
 mod tiff;
 mod value;
-mod iso6709;
-mod qt;
-mod qt_tags;
 
 pub use error::{Error, Result};
 pub use metadata::{Metadata, TagRecord};
 pub use printconv::format_record;
 pub use value::Value;
 
+use std::fs;
+use std::io::Write;
 use std::path::Path;
 
 use crate::detect::FileType;
+
+/// Options for `strip_metadata`, mirroring a subset of `exiftool -all=` and common keep-flags.
+#[derive(Debug, Clone)]
+pub struct StripOptions {
+    /// Keep ICC profile: JPEG `APP2` ICC, PNG `iCCP`, and HEIC `colr` in `ipco` when set.
+    pub keep_icc: bool,
+    /// Keep color-related ancillaries: PNG `gAMA`, `cHRM`, `sRGB`, `tRNS`, `bKGD`, …
+    pub keep_color_info: bool,
+    /// Keep JPEG JFIF `APP0` segment.
+    pub keep_jfif: bool,
+    /// When set, do not write a sidecar `*_original` in `strip_metadata_in_place`.
+    pub overwrite_original: bool,
+}
+
+impl Default for StripOptions {
+    /// Match aggressive `exiftool -all=` (strip ICC, JFIF, and color aux).
+    fn default() -> Self {
+        Self {
+            keep_icc: false,
+            keep_color_info: false,
+            keep_jfif: false,
+            overwrite_original: false,
+        }
+    }
+}
+
+/// Remove metadata; returns new bytes. TIFF is not supported in this version.
+pub fn strip_metadata(bytes: &[u8], opts: &StripOptions) -> Result<Vec<u8>> {
+    match detect::detect(bytes)? {
+        FileType::Jpeg => jpeg_strip::strip(bytes, opts),
+        FileType::Png => png_strip::strip(bytes, opts),
+        FileType::Qt => qt_strip::strip(bytes, opts),
+        FileType::Tiff => Err(Error::Unsupported("TIFF strip")),
+    }
+}
+
+/// Strip metadata in place: writes `<filename>_original` first (unless `overwrite_original`),
+/// then rewrites the file using a same-directory temp and atomic rename.
+pub fn strip_metadata_in_place(path: &Path, opts: &StripOptions) -> Result<()> {
+    let data = fs::read(path)?;
+    let out = strip_metadata(&data, opts)?;
+    if !opts.overwrite_original {
+        if let Some(name) = path.file_name().and_then(|n| n.to_str()) {
+            let sidecar = path.with_file_name(format!("{name}_original"));
+            if !sidecar.exists() {
+                fs::copy(path, &sidecar)?;
+            }
+        }
+    }
+    use std::time::{SystemTime, UNIX_EPOCH};
+    let t = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .map(|d| d.as_millis() as u64)
+        .unwrap_or(0);
+    let dir = path.parent().unwrap_or_else(|| Path::new("."));
+    let tmp = dir.join(format!(".exifinf_strip_{:x}.tmp", t));
+    {
+        let mut f = fs::File::create(&tmp)?;
+        f.write_all(&out)?;
+        f.sync_all()?;
+    }
+    fs::rename(&tmp, path)?;
+    Ok(())
+}
 
 pub fn extract(bytes: &[u8]) -> Result<Metadata> {
     let mut meta = Metadata::default();

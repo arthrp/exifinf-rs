@@ -13,6 +13,8 @@ pub enum Error {
     BadQt,
     Decompress(String),
     Unsupported(&'static str),
+    /// stco / co64 / iloc underflow when adjusting for removed bytes
+    OffsetOverflow,
 }
 
 impl fmt::Display for Error {
@@ -28,6 +30,7 @@ impl fmt::Display for Error {
             Error::BadQt => write!(f, "invalid QuickTime/MP4 (ISO BMFF) structure"),
             Error::Decompress(s) => write!(f, "decompression failed: {s}"),
             Error::Unsupported(s) => write!(f, "unsupported: {s}"),
+            Error::OffsetOverflow => write!(f, "offset adjustment would underflow (invalid BMFF)"),
         }
     }
 }
