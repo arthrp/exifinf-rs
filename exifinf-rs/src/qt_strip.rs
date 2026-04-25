@@ -17,7 +17,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
         return Ok(None);
     }
     let size32 = u32::from_be_bytes(
-        *<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQt)?,
+        *<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQuicktime)?,
     ) as u64;
     let mut kind = [0u8; 4];
     kind.copy_from_slice(&data[at + 4..at + 8]);
@@ -28,7 +28,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
                 return Err(Error::Truncated);
             }
             let t = u64::from_be_bytes(
-                *<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQt)?,
+                *<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQuicktime)?,
             );
             (16, t)
         }
@@ -36,25 +36,25 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
     };
     let end = at
         .checked_add(total as usize)
-        .ok_or(Error::BadQt)?;
+        .ok_or(Error::BadQuicktime)?;
     if end > data.len() {
         return Err(Error::Truncated);
     }
     if header_len > total {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     let body = data
         .get((at + header_len as usize)..end)
-        .ok_or(Error::BadQt)?;
+        .ok_or(Error::BadQuicktime)?;
     Ok(Some((end, BmffBox { kind, body })))
 }
 
 fn make_box(t: [u8; 4], body: Vec<u8>) -> Result<Vec<u8>> {
     let size = 8u32
         .checked_add(
-            u32::try_from(body.len()).map_err(|_| Error::BadQt)?,
+            u32::try_from(body.len()).map_err(|_| Error::BadQuicktime)?,
         )
-        .ok_or(Error::BadQt)?;
+        .ok_or(Error::BadQuicktime)?;
     let mut v = vec![0u8; 8 + body.len()];
     v[0..4].copy_from_slice(&size.to_be_bytes());
     v[4..8].copy_from_slice(&t);
@@ -102,7 +102,7 @@ fn first_mdat_start(data: &[u8]) -> Option<usize> {
                 }
                 p = end;
             }
-            Ok(None) | Err(Error::Truncated) | Err(Error::BadQt) => break,
+            Ok(None) | Err(Error::Truncated) | Err(Error::BadQuicktime) => break,
             Err(_) => break,
         }
     }
@@ -129,9 +129,9 @@ fn blit_children(data: &[u8], s: usize, e: usize) -> Result<Vec<u8>> {
     let mut out = Vec::new();
     let mut p = s;
     while p < e {
-        let (end, _) = read_box(data, p)?.ok_or(Error::BadQt)?;
+        let (end, _) = read_box(data, p)?.ok_or(Error::BadQuicktime)?;
         if end > e {
-            return Err(Error::BadQt);
+            return Err(Error::BadQuicktime);
         }
         out.extend_from_slice(&data[p..end]);
         p = end;
@@ -145,9 +145,9 @@ fn filter_moov(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<
         let mut o_ = vec![];
         let mut r = inner;
         while r < e {
-            let (end, b) = read_box(d, r)?.ok_or(Error::BadQt)?;
+            let (end, b) = read_box(d, r)?.ok_or(Error::BadQuicktime)?;
             if end > e {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             if b.kind == *b"udta" || b.kind == *b"meta" {
                 r = end;
@@ -175,9 +175,9 @@ fn filter_trak(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<
         let mut o_ = vec![];
         let mut r = inner;
         while r < e {
-            let (end, b) = read_box(d, r)?.ok_or(Error::BadQt)?;
+            let (end, b) = read_box(d, r)?.ok_or(Error::BadQuicktime)?;
             if end > e {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             if b.kind == *b"udta" || b.kind == *b"meta" {
                 r = end;
@@ -205,9 +205,9 @@ fn filter_mdia(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<
         let mut o_ = vec![];
         let mut r = inner;
         while r < e {
-            let (end, b) = read_box(d, r)?.ok_or(Error::BadQt)?;
+            let (end, b) = read_box(d, r)?.ok_or(Error::BadQuicktime)?;
             if end > e {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             if b.kind == *b"udta" || b.kind == *b"meta" {
                 r = end;
@@ -239,7 +239,7 @@ fn filter_ipco(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<
         let mut o_ = vec![];
         let mut r = inner;
         while r < e {
-            let (end, b) = read_box(d, r)?.ok_or(Error::BadQt)?;
+            let (end, b) = read_box(d, r)?.ok_or(Error::BadQuicktime)?;
             if b.kind == *b"colr" && !o.keep_icc {
                 r = end;
                 continue;
@@ -258,7 +258,7 @@ fn filter_iprp(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<
         let mut o_ = vec![];
         let mut r = inner;
         while r < e {
-            let (end, b) = read_box(d, r)?.ok_or(Error::BadQt)?;
+            let (end, b) = read_box(d, r)?.ok_or(Error::BadQuicktime)?;
             if b.kind == *b"ipco" {
                 o_.extend(filter_ipco(d, r, end, o)?);
             } else {
@@ -274,18 +274,18 @@ fn filter_iprp(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<
 /// HEIC / HEIF `meta` at file level: keep structure, remove XMP `uuid` and (optional) colr
 fn filter_top_meta(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Result<Vec<u8>> {
     if p + 8 + 4 > e {
-        return Ok(d.get(p..e).ok_or(Error::BadQt)?.to_vec());
+        return Ok(d.get(p..e).ok_or(Error::BadQuicktime)?.to_vec());
     }
     // FullBox: first 4 bytes of body
     let verf: [u8; 4] = d[(p + 8)..(p + 12)]
         .try_into()
-        .map_err(|_| Error::BadQt)?;
+        .map_err(|_| Error::BadQuicktime)?;
     let inner = p + 12;
     let ch = {
         let mut o_ = vec![];
         let mut r = inner;
         while r < e {
-            let (end, b) = read_box(d, r)?.ok_or(Error::BadQt)?;
+            let (end, b) = read_box(d, r)?.ok_or(Error::BadQuicktime)?;
             if b.kind == *b"meta" {
                 r = end;
                 continue;
@@ -315,7 +315,7 @@ fn filter_top(d: &[u8], is_heic: bool, o: &crate::StripOptions) -> Result<Vec<u8
     let mut out = vec![];
     let mut p = 0usize;
     while p < d.len() {
-        let (end, b) = read_box(d, p)?.ok_or(Error::BadQt)?;
+        let (end, b) = read_box(d, p)?.ok_or(Error::BadQuicktime)?;
         if b.kind == *b"moof" {
             return Err(Error::Unsupported("fragmented MP4 (moof)"));
         }
@@ -358,12 +358,12 @@ fn sub_u64(v: u64, d: u64) -> Result<u64> {
 
 fn box_header_len(d: &[u8], p: usize) -> Result<usize> {
     if p + 8 > d.len() {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     let s = u32::from_be_bytes(
         d[p..p + 4]
             .try_into()
-            .map_err(|_| Error::BadQt)?,
+            .map_err(|_| Error::BadQuicktime)?,
     ) as u64;
     if s == 1 {
         Ok(16)
@@ -382,7 +382,7 @@ fn patch_stco(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
     let n = u32::from_be_bytes(
         d[pl + 4..pl + 8]
             .try_into()
-            .map_err(|_| Error::BadQt)?,
+            .map_err(|_| Error::BadQuicktime)?,
     ) as usize;
     for i in 0..n {
         let o = 8 + i * 4;
@@ -392,7 +392,7 @@ fn patch_stco(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
         let v = u32::from_be_bytes(
             d[pl + o..pl + o + 4]
                 .try_into()
-                .map_err(|_| Error::BadQt)?,
+                .map_err(|_| Error::BadQuicktime)?,
         );
         let n2 = sub_u32(v, dlt)?;
         d[pl + o..pl + o + 4].copy_from_slice(&n2.to_be_bytes());
@@ -409,7 +409,7 @@ fn patch_co64(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
     let n = u32::from_be_bytes(
         d[pl + 4..pl + 8]
             .try_into()
-            .map_err(|_| Error::BadQt)?,
+            .map_err(|_| Error::BadQuicktime)?,
     ) as usize;
     for i in 0..n {
         let o = 8 + i * 8;
@@ -419,7 +419,7 @@ fn patch_co64(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
         let v = u64::from_be_bytes(
             d[pl + o..pl + o + 8]
                 .try_into()
-                .map_err(|_| Error::BadQt)?,
+                .map_err(|_| Error::BadQuicktime)?,
         );
         let n2 = sub_u64(v, dlt)?;
         d[pl + o..pl + o + 8].copy_from_slice(&n2.to_be_bytes());
@@ -433,22 +433,22 @@ fn read_sized_n(body: &[u8], c: &mut usize, n: u8) -> Result<u64> {
         0 => 0u64,
         4 => {
             if *c + 4 > body.len() {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             let o = u32::from_be_bytes(
                 *<&[u8; 4]>::try_from(&body[*c..*c + 4])
-                    .map_err(|_| Error::BadQt)?,
+                    .map_err(|_| Error::BadQuicktime)?,
             ) as u64;
             *c += 4;
             o
         }
         8 => {
             if *c + 8 > body.len() {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             let o = u64::from_be_bytes(
                 *<&[u8; 8]>::try_from(&body[*c..*c + 8])
-                    .map_err(|_| Error::BadQt)?,
+                    .map_err(|_| Error::BadQuicktime)?,
             );
             *c += 8;
             o
@@ -464,7 +464,7 @@ fn write_sized_n(body: &mut [u8], c: &mut usize, n: u8, v: u64) -> Result<()> {
         0 => {}
         4 => {
             if *c + 4 > body.len() {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             let w = u32::try_from(v).map_err(|_| Error::OffsetOverflow)?;
             body[*c..*c + 4].copy_from_slice(&w.to_be_bytes());
@@ -472,7 +472,7 @@ fn write_sized_n(body: &mut [u8], c: &mut usize, n: u8, v: u64) -> Result<()> {
         }
         8 => {
             if *c + 8 > body.len() {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             body[*c..*c + 8].copy_from_slice(&v.to_be_bytes());
             *c += 8;
@@ -488,9 +488,9 @@ fn write_sized_n(body: &mut [u8], c: &mut usize, n: u8, v: u64) -> Result<()> {
 fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
     let hl = box_header_len(d, p)?;
     if p + hl > e {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
-    let b = d.get_mut(p + hl..e).ok_or(Error::BadQt)?;
+    let b = d.get_mut(p + hl..e).ok_or(Error::BadQuicktime)?;
     if b.is_empty() {
         return Ok(());
     }
@@ -503,14 +503,14 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
         return Ok(());
     }
     if b.len() < c + 1 {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     let value = b[c];
     c += 1;
     let offset_size = (value >> 4) & 0x0F;
     let length_size = value & 0x0F;
     if c >= b.len() {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     let value2 = b[c];
     c += 1;
@@ -524,17 +524,17 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
         return Err(Error::Unsupported("iloc: index_size != 0"));
     }
     if c + 2 > b.len() {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     let item_count = u16::from_be_bytes(
         *<&[u8; 2]>::try_from(&b[c..c + 2])
-            .map_err(|_| Error::BadQt)?,
+            .map_err(|_| Error::BadQuicktime)?,
     ) as usize;
     c += 2;
     for _ in 0..item_count {
         if version < 2 {
             if c + 2 > b.len() {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             c += 2; // item_id
         } else {
@@ -543,26 +543,26 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
         let mut offset_type: u8 = 0;
         if version > 0 {
             if c + 2 > b.len() {
-                return Err(Error::BadQt);
+                return Err(Error::BadQuicktime);
             }
             offset_type = (u16::from_be_bytes(
                 *<&[u8; 2]>::try_from(&b[c..c + 2])
-                    .map_err(|_| Error::BadQt)?,
+                    .map_err(|_| Error::BadQuicktime)?,
             ) & 0x0F) as u8;
             c += 2;
         }
         if c + 2 > b.len() {
-            return Err(Error::BadQt);
+            return Err(Error::BadQuicktime);
         }
         c += 2; // data_reference_index
         let base_start = c;
         let base = read_sized_n(b, &mut c, base_offset_size)?;
         if c + 2 > b.len() {
-            return Err(Error::BadQt);
+            return Err(Error::BadQuicktime);
         }
         let extent_count = u16::from_be_bytes(
             *<&[u8; 2]>::try_from(&b[c..c + 2])
-                .map_err(|_| Error::BadQt)?,
+                .map_err(|_| Error::BadQuicktime)?,
         ) as usize;
         c += 2;
         if extent_count > 1 {
@@ -578,7 +578,7 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
             }
             let abs = base
                 .checked_add(ext)
-                .ok_or(Error::BadQt)?;
+                .ok_or(Error::BadQuicktime)?;
             if abs < dlt {
                 return Err(Error::OffsetOverflow);
             }
@@ -607,12 +607,12 @@ fn container_inner(p: usize, d: &[u8], e: usize, kind: [u8; 4]) -> Result<usize>
     let h = box_header_len(d, p)?;
     if kind == *b"meta" || kind == *b"mvex" {
         if p + h + 4 > e {
-            return Err(Error::BadQt);
+            return Err(Error::BadQuicktime);
         }
         return Ok(p + h + 4);
     }
     if p + h > e {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     Ok(p + h)
 }
@@ -620,9 +620,9 @@ fn container_inner(p: usize, d: &[u8], e: usize, kind: [u8; 4]) -> Result<usize>
 fn rec_patch(d: &mut [u8], s: usize, e: usize, dlt: u64) -> Result<()> {
     let mut p = s;
     while p < e {
-        let (end, b) = read_box(&*d, p)?.ok_or(Error::BadQt)?;
+        let (end, b) = read_box(&*d, p)?.ok_or(Error::BadQuicktime)?;
         if end > e {
-            return Err(Error::BadQt);
+            return Err(Error::BadQuicktime);
         }
         if b.kind == *b"stco" {
             patch_stco(d, p, end, dlt)?;

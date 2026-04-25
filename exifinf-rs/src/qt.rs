@@ -24,7 +24,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
         return Ok(None);
     }
     let size32 = u32::from_be_bytes(
-        *<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQt)?,
+        *<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQuicktime)?,
     ) as u64;
     let mut kind = [0u8; 4];
     kind.copy_from_slice(&data[at + 4..at + 8]);
@@ -35,22 +35,22 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
                 return Err(Error::Truncated);
             }
             let t = u64::from_be_bytes(
-                *<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQt)?,
+                *<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQuicktime)?,
             );
             (16, t)
         }
         s => (8, s),
     };
-    let end = at.checked_add(total as usize).ok_or(Error::BadQt)?;
+    let end = at.checked_add(total as usize).ok_or(Error::BadQuicktime)?;
     if end > data.len() {
         return Err(Error::Truncated);
     }
     if header_len > total {
-        return Err(Error::BadQt);
+        return Err(Error::BadQuicktime);
     }
     let body = data
         .get((at + header_len as usize)..end)
-        .ok_or(Error::BadQt)?;
+        .ok_or(Error::BadQuicktime)?;
     Ok(Some((end, BmffBox { kind, body })))
 }
 
@@ -103,7 +103,7 @@ pub fn parse(output: &mut Metadata, data: &[u8]) -> Result<()> {
                 }
                 if b.body.len() >= 8 {
                     minor_version = u32::from_be_bytes(
-                        *<&[u8; 4]>::try_from(&b.body[4..8]).map_err(|_| Error::BadQt)?,
+                        *<&[u8; 4]>::try_from(&b.body[4..8]).map_err(|_| Error::BadQuicktime)?,
                     );
                 }
                 let mut cp = 8usize;

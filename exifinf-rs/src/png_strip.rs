@@ -61,13 +61,13 @@ pub fn strip(data: &[u8], opts: &crate::StripOptions) -> Result<Vec<u8>> {
     }
     let mut out: Vec<u8> = data[0..8].to_vec();
     let mut p = 8usize;
-    let mut have_ihdr = false;
-    let mut have_idat = false;
-    let mut have_iend = false;
+    let mut has_ihdr = false;
+    let mut has_idat = false;
+    let mut has_iend = false;
     while p + 8 <= data.len() {
         let len = u32::from_be_bytes([data[p], data[p + 1], data[p + 2], data[p + 3]]) as usize;
-        let mut typ = [0u8; 4];
-        typ.copy_from_slice(&data[p + 4..p + 8]);
+        let mut chunk_type = [0u8; 4];
+        chunk_type.copy_from_slice(&data[p + 4..p + 8]);
         let dstart = p + 8;
         let dend = dstart
             .checked_add(len)
@@ -79,29 +79,29 @@ pub fn strip(data: &[u8], opts: &crate::StripOptions) -> Result<Vec<u8>> {
         let stored_crc = u32::from_be_bytes([data[dend], data[dend + 1], data[dend + 2], data[dend + 3]]);
 
         p = dend + 4;
-        if chunk_crc32(typ, chunk_data) != stored_crc {
+        if chunk_crc32(chunk_type, chunk_data) != stored_crc {
             return Err(Error::BadPng);
         }
 
-        if !keep_chunk(typ, opts) {
+        if !keep_chunk(chunk_type, opts) {
             continue;
         }
-        if typ == *b"IHDR" {
-            have_ihdr = true;
+        if chunk_type == *b"IHDR" {
+            has_ihdr = true;
         }
-        if typ == *b"IDAT" {
-            have_idat = true;
+        if chunk_type == *b"IDAT" {
+            has_idat = true;
         }
-        if typ == *b"IEND" {
-            have_iend = true;
+        if chunk_type == *b"IEND" {
+            has_iend = true;
         }
         let len_u32: u32 = u32::try_from(len).map_err(|_| Error::BadPng)?;
         out.extend_from_slice(&len_u32.to_be_bytes());
-        out.extend_from_slice(&typ);
+        out.extend_from_slice(&chunk_type);
         out.extend_from_slice(chunk_data);
-        out.extend_from_slice(&chunk_crc32(typ, chunk_data).to_be_bytes());
+        out.extend_from_slice(&chunk_crc32(chunk_type, chunk_data).to_be_bytes());
     }
-    if !have_ihdr || !have_idat || !have_iend {
+    if !has_ihdr || !has_idat || !has_iend {
         return Err(Error::BadPng);
     }
     Ok(out)
