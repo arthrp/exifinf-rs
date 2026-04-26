@@ -20,6 +20,7 @@ mod tables;
 mod tag_def;
 mod tiff;
 mod value;
+mod common;
 
 pub use error::{Error, Result};
 pub use metadata::{Metadata, TagRecord};

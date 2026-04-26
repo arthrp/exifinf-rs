@@ -1,6 +1,6 @@
 use crate::error::{Error, Result};
+use crate::common::{PNG_SIG};
 
-const PNG_SIG: [u8; 8] = [0x89, b'P', b'N', b'G', b'\r', b'\n', 0x1a, b'\n'];
 
 /// CRC-32 (IEEE) for chunk type+data
 fn chunk_crc32(typ: [u8; 4], data: &[u8]) -> u32 {

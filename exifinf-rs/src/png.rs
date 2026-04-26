@@ -8,13 +8,14 @@ use crate::metadata::Metadata;
 use crate::tables::lookup_png_text;
 use crate::tiff;
 use crate::value::Value;
+use crate::common::{PNG_SIG};
 
 pub fn parse(meta: &mut Metadata, data: &[u8]) -> Result<()> {
     if data.len() < 8 {
         return Err(Error::BadPng);
     }
     let sig = &data[0..8];
-    if sig != [0x89, b'P', b'N', b'G', b'\r', b'\n', 0x1a, b'\n'] {
+    if sig != PNG_SIG {
         return Err(Error::BadPng);
     }
     let mut p = 8usize;
