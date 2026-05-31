@@ -1,0 +1,31 @@
+name: Release WASM
+
+permissions:
+  contents: write
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Publish binaries
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_REF_NAME: ${{ github.event.release.tag_name }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+
+      - run: bash scripts/build-wasm.sh
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: dist/*.tar.gz
+          fail_on_unmatched_files: true
