@@ -2,6 +2,8 @@
 
 Partial Rust port of [ExifTool](https://exiftool.org/) utility. Read-only metadata extraction and deletion for **JPEG**, **TIFF**, and **PNG**, **QuickTime / ISO BMFF** containers (**MOV/MP4/M4A/HEIC** and other). Tag naming and formatting follow a **subset of [ExifTool](https://exiftool.org/) semantics**, so output should feel familiar if you use that tool elsewhere.
 
+Try it online [here](https://arthrp.github.io/exifinf-rs/).
+
 ## Workspace
 
 | Crate | Role |
