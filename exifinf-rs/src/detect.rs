@@ -1,4 +1,4 @@
-use crate::error::{Error, Result};
+use crate::{common::PNG_SIG, error::{Error, Result}};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FileType {
@@ -24,7 +24,7 @@ pub fn detect(data: &[u8]) -> Result<FileType> {
     if data.starts_with(b"II*\0") || data.starts_with(b"MM\0*") {
         return Ok(FileType::Tiff);
     }
-    if data.starts_with(&[0x89, b'P', b'N', b'G', b'\r', b'\n', 0x1a, b'\n']) {
+    if data.starts_with(&PNG_SIG) {
         return Ok(FileType::Png);
     }
     if data.len() >= 8 {
