@@ -100,9 +100,9 @@
 
     <div id="dropzone">
         <p>Drop an image here or click to choose</p>
-        <p class="hint">JPEG and PNG only</p>
+        <p class="hint">JPEG, PNG, MP4, MOV and HEIC</p>
     </div>
-    <input type="file" id="file-input" accept="image/jpeg,image/png,.jpg,.jpeg,.png">
+    <input type="file" id="file-input" accept="image/jpeg,image/png,image/heic,image/heif,video/mp4,video/quicktime,.jpg,.jpeg,.png,.mp4,.mov,.heic,.heif">
 
     <div id="loading">Processing…</div>
     <div id="status"></div>
@@ -145,12 +145,14 @@
         }
 
         function isAllowedType(type) {
-            return type === 'image/jpeg' || type === 'image/png';
+            return type === 'image/jpeg' || type === 'image/png'
+                || type === 'video/mp4' || type === 'video/quicktime'
+                || type === 'image/heic' || type === 'image/heif';
         }
 
         async function processFile(file) {
             if (!isAllowedType(file.type)) {
-                setStatus('Please choose a JPG or PNG file.', 'error');
+                setStatus('Please choose a JPG, PNG, MP4, MOV or HEIC file.', 'error');
                 return;
             }
 
