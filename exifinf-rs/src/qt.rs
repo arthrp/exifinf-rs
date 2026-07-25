@@ -7,10 +7,8 @@ use crate::metadata::Metadata;
 use crate::qt_tags::{apple_meta_key, classic_udta_atom, ftyp_to_file_mime, ilst_data_atom};
 use crate::tiff;
 use crate::value::Value;
+use crate::common::{XMP_UUID};
 
-const XMP_UUID: [u8; 16] = [
-    0xBE, 0x7A, 0xCF, 0xCB, 0x97, 0xA9, 0x42, 0xE8, 0x9C, 0x71, 0x99, 0x94, 0x91, 0xE3, 0xAF, 0xAC,
-];
 const MAC_EPOCH_TO_UNIX: i64 = 2_082_844_800;
 
 struct BmffBox<'a> {
