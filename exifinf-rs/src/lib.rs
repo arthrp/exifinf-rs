@@ -1,6 +1,7 @@
 //! EXIF / metadata: read for JPEG, TIFF, PNG, and QuickTime/MP4/HEIC; strip for JPEG, PNG, QT.
 
 mod byteorder;
+mod common;
 mod detect;
 mod error;
 mod format;
@@ -20,7 +21,6 @@ mod tables;
 mod tag_def;
 mod tiff;
 mod value;
-mod common;
 
 pub use error::{Error, Result};
 pub use metadata::{Metadata, TagRecord};
@@ -148,11 +148,7 @@ mod tests {
     #[test]
     fn tiff_one_string_tag() {
         let m = extract(&minimal_tiff_image_description()).unwrap();
-        let d = m
-            .tags
-            .iter()
-            .find(|t| t.name == "ImageDescription")
-            .unwrap();
+        let d = m.tags.iter().find(|t| t.name == "ImageDescription").unwrap();
         assert_eq!(d.value, Value::Ascii("test".into()));
     }
 

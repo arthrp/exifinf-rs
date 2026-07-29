@@ -1,11 +1,11 @@
 use std::collections::HashSet;
 
-use crate::byteorder::{read_f32, read_f64, read_i16, read_i32, read_i64, read_u16, read_u32, read_u64, Endian};
+use crate::byteorder::{Endian, read_f32, read_f64, read_i16, read_i32, read_i64, read_u16, read_u32, read_u64};
 use crate::error::{Error, Result};
 use crate::format::Format;
 use crate::metadata::Metadata;
-use crate::tag_def::SubDir;
 use crate::tables::{lookup_exif, lookup_gps};
+use crate::tag_def::SubDir;
 use crate::value::{Rational, SRational, Value};
 
 pub fn parse_exif_slice(meta: &mut Metadata, tiff: &[u8]) -> Result<()> {
@@ -74,8 +74,7 @@ fn walk_ifd(
         let fmt = Format::from_u16(typ).ok_or(Error::UnknownFormat)?;
         let comp = fmt.size().checked_mul(count).ok_or(Error::BadTiff)?;
         let data: &[u8] = if comp <= 4 {
-            buf.get(value_field_off..value_field_off + comp)
-                .ok_or(Error::BadTiff)?
+            buf.get(value_field_off..value_field_off + comp).ok_or(Error::BadTiff)?
         } else {
             let ext = read_u32(buf, value_field_off, e)? as usize;
             let end = ext.checked_add(comp).ok_or(Error::BadTiff)?;
@@ -85,11 +84,7 @@ fn walk_ifd(
             &buf[ext..end]
         };
 
-        let def = if in_gps {
-            lookup_gps(tag)
-        } else {
-            lookup_exif(tag)
-        };
+        let def = if in_gps { lookup_gps(tag) } else { lookup_exif(tag) };
         let sub = def.map(|d| d.sub_dir).unwrap_or(SubDir::None);
 
         if tag == 0x927c || sub == SubDir::MakerNotes {

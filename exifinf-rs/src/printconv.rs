@@ -1,7 +1,7 @@
 use crate::gps;
 use crate::metadata::TagRecord;
-use crate::tag_def::PrintConv;
 use crate::tables::{lookup_exif, lookup_gps, lookup_png_text_by_tagname};
+use crate::tag_def::PrintConv;
 use crate::value::Value;
 
 fn value_as_i64(v: &Value) -> Option<i64> {
@@ -53,45 +53,50 @@ pub fn format_record(rec: &TagRecord, all: &[TagRecord]) -> String {
     if rec.group == "GPS" {
         if rec.name == "GPSLatitude" {
             let pref = sibling_value(all, "GPS", "GPSLatitudeRef");
-            if let Some(s) = gps::format_coordinate(&rec.value, pref.and_then(|v| match v {
-                Value::Ascii(s) | Value::Utf8(s) => Some(s.as_str()),
-                _ => None,
-            }), true)
-            {
+            if let Some(s) = gps::format_coordinate(
+                &rec.value,
+                pref.and_then(|v| match v {
+                    Value::Ascii(s) | Value::Utf8(s) => Some(s.as_str()),
+                    _ => None,
+                }),
+                true,
+            ) {
                 return s;
             }
         }
         if rec.name == "GPSLongitude" {
             let pref = sibling_value(all, "GPS", "GPSLongitudeRef");
-            if let Some(s) = gps::format_coordinate(&rec.value, pref.and_then(|v| match v {
-                Value::Ascii(s) | Value::Utf8(s) => Some(s.as_str()),
-                _ => None,
-            }), false)
-            {
+            if let Some(s) = gps::format_coordinate(
+                &rec.value,
+                pref.and_then(|v| match v {
+                    Value::Ascii(s) | Value::Utf8(s) => Some(s.as_str()),
+                    _ => None,
+                }),
+                false,
+            ) {
                 return s;
             }
         }
         if rec.name == "GPSLatitudeRef"
-            && let Some(s) = gps::format_lat_ref(&rec.value) {
-                return s;
-            }
+            && let Some(s) = gps::format_lat_ref(&rec.value)
+        {
+            return s;
+        }
         if rec.name == "GPSLongitudeRef"
-            && let Some(s) = gps::format_lon_ref(&rec.value) {
-                return s;
-            }
+            && let Some(s) = gps::format_lon_ref(&rec.value)
+        {
+            return s;
+        }
     }
 
     if let Some(id) = rec.tag_id {
         let in_gps = rec.group == "GPS";
-        let def = if in_gps {
-            lookup_gps(id)
-        } else {
-            lookup_exif(id)
-        };
+        let def = if in_gps { lookup_gps(id) } else { lookup_exif(id) };
         if let Some(d) = def
-            && let Some(s) = apply_map(d.print_conv, &rec.value) {
-                return s;
-            }
+            && let Some(s) = apply_map(d.print_conv, &rec.value)
+        {
+            return s;
+        }
     } else if let Some(d) = lookup_png_text_by_tagname(&rec.name)
         && (rec.group == d.group1 || rec.group == "PNG")
         && let Some(s) = apply_map(d.print_conv, &rec.value)

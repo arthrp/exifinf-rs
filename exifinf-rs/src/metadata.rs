@@ -24,13 +24,7 @@ impl Metadata {
         });
     }
 
-    pub fn push_id(
-        &mut self,
-        group: impl Into<String>,
-        name: impl Into<String>,
-        tag_id: u16,
-        value: Value,
-    ) {
+    pub fn push_id(&mut self, group: impl Into<String>, name: impl Into<String>, tag_id: u16, value: Value) {
         self.tags.push(TagRecord {
             group: group.into(),
             name: name.into(),

@@ -15,26 +15,20 @@ pub fn parse(meta: &mut Metadata, data: &[u8]) -> Result<()> {
         if *marker == 0xe1 && exif_header_len(payload).is_some() {
             let mut buf = strip_exif_payload(payload)?;
             let mut j = i;
-            while j + 1 < segs.len()
-                && segs[j + 1].0 == 0xe1
-                && is_exif_continuation(&segs[j + 1].1)
-            {
+            while j + 1 < segs.len() && segs[j + 1].0 == 0xe1 && is_exif_continuation(&segs[j + 1].1) {
                 j += 1;
                 buf.extend_from_slice(&strip_exif_payload(&segs[j].1)?);
             }
             i = j;
             tiff::parse_exif_slice(meta, &buf)?;
         } else if is_sof(*marker)
-            && let Some((w, h, bps, comps)) = parse_sof(payload) {
-                meta.push("File", "ImageWidth", crate::value::Value::U32(w));
-                meta.push("File", "ImageHeight", crate::value::Value::U32(h));
-                meta.push("File", "BitsPerSample", crate::value::Value::U8(bps));
-                meta.push(
-                    "File",
-                    "ColorComponents",
-                    crate::value::Value::U8(comps),
-                );
-            }
+            && let Some((w, h, bps, comps)) = parse_sof(payload)
+        {
+            meta.push("File", "ImageWidth", crate::value::Value::U32(w));
+            meta.push("File", "ImageHeight", crate::value::Value::U32(h));
+            meta.push("File", "BitsPerSample", crate::value::Value::U8(bps));
+            meta.push("File", "ColorComponents", crate::value::Value::U8(comps));
+        }
         i += 1;
     }
     Ok(())
@@ -92,9 +86,7 @@ fn parse_sof(payload: &[u8]) -> Option<(u32, u32, u8, u8)> {
 }
 
 fn exif_header_len(payload: &[u8]) -> Option<usize> {
-    let p = payload
-        .windows(EXIF_HDR.len())
-        .position(|w| w == EXIF_HDR)?;
+    let p = payload.windows(EXIF_HDR.len()).position(|w| w == EXIF_HDR)?;
     Some(p + EXIF_HDR.len())
 }
 

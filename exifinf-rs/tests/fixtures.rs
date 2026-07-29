@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 use std::fs;
 
-use exifinf_rs::{extract, extract_from_path, strip_metadata, StripOptions};
+use exifinf_rs::{StripOptions, extract, extract_from_path, strip_metadata};
 
 fn images_dir() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../img")
@@ -49,7 +49,9 @@ fn extract_mov_works() {
         "expected File:ImageWidth from QuickTime.mov"
     );
     assert!(
-        m.tags.iter().any(|t| t.name == "FileType" && t.value.to_string().contains("MOV")),
+        m.tags
+            .iter()
+            .any(|t| t.name == "FileType" && t.value.to_string().contains("MOV")),
         "expected MOV file type"
     );
     assert!(
@@ -67,7 +69,9 @@ fn extract_heic_works() {
         "expected File:ImageWidth from HEIC ispe"
     );
     assert!(
-        m.tags.iter().any(|t| t.name == "FileType" && t.value.to_string().contains("HEIC")),
+        m.tags
+            .iter()
+            .any(|t| t.name == "FileType" && t.value.to_string().contains("HEIC")),
         "expected HEIC file type from ftyp"
     );
 }
@@ -79,10 +83,7 @@ fn strip_jpeg_removes_exif_roundtrip() {
     let s = strip_metadata(&b, &StripOptions::default()).expect("strip");
     assert!(s.len() < b.len());
     let m = extract(&s).expect("extract stripped");
-    assert!(
-        !m.tags.iter().any(|t| t.name == "Make"),
-        "Make should be removed"
-    );
+    assert!(!m.tags.iter().any(|t| t.name == "Make"), "Make should be removed");
     assert!(
         m.tags.iter().any(|t| t.name == "ImageWidth" && t.group == "File"),
         "still have dimensions"

@@ -1,13 +1,13 @@
 //! QuickTime / ISO BMFF (MOV, MP4, M4A, HEIC, etc.) read-only metadata.
 
-use crate::byteorder::{read_f32, read_f64, read_i32, read_u32, read_u64, Endian};
+use crate::byteorder::{Endian, read_f32, read_f64, read_i32, read_u32, read_u64};
+use crate::common::XMP_UUID;
 use crate::error::{Error, Result};
 use crate::iso6709;
 use crate::metadata::Metadata;
 use crate::qt_tags::{apple_meta_key, classic_udta_atom, ftyp_to_file_mime, ilst_data_atom};
 use crate::tiff;
 use crate::value::Value;
-use crate::common::{XMP_UUID};
 
 const MAC_EPOCH_TO_UNIX: i64 = 2_082_844_800;
 
@@ -21,9 +21,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
     if at + 8 > data.len() {
         return Ok(None);
     }
-    let size32 = u32::from_be_bytes(
-        *<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQuicktime)?,
-    ) as u64;
+    let size32 = u32::from_be_bytes(*<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQuicktime)?) as u64;
     let mut kind = [0u8; 4];
     kind.copy_from_slice(&data[at + 4..at + 8]);
     let (header_len, total) = match size32 {
@@ -32,9 +30,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
             if at + 16 > data.len() {
                 return Err(Error::Truncated);
             }
-            let t = u64::from_be_bytes(
-                *<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQuicktime)?,
-            );
+            let t = u64::from_be_bytes(*<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQuicktime)?);
             (16, t)
         }
         s => (8, s),
@@ -46,9 +42,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
     if header_len > total {
         return Err(Error::BadQuicktime);
     }
-    let body = data
-        .get((at + header_len as usize)..end)
-        .ok_or(Error::BadQuicktime)?;
+    let body = data.get((at + header_len as usize)..end).ok_or(Error::BadQuicktime)?;
     Ok(Some((end, BmffBox { kind, body })))
 }
 
@@ -100,9 +94,8 @@ pub fn parse(output: &mut Metadata, data: &[u8]) -> Result<()> {
                     major = Some(m);
                 }
                 if b.body.len() >= 8 {
-                    minor_version = u32::from_be_bytes(
-                        *<&[u8; 4]>::try_from(&b.body[4..8]).map_err(|_| Error::BadQuicktime)?,
-                    );
+                    minor_version =
+                        u32::from_be_bytes(*<&[u8; 4]>::try_from(&b.body[4..8]).map_err(|_| Error::BadQuicktime)?);
                 }
                 let mut cp = 8usize;
                 while cp + 4 <= b.body.len() {
@@ -122,9 +115,10 @@ pub fn parse(output: &mut Metadata, data: &[u8]) -> Result<()> {
             }
             b"uuid" if b.body.len() >= 16 => {
                 if b.body[0..16] == XMP_UUID[0..16]
-                    && let Ok(s) = std::str::from_utf8(&b.body[16..]) {
-                        output.push("XMP", "XMP", Value::Utf8(s.trim().to_string()));
-                    }
+                    && let Ok(s) = std::str::from_utf8(&b.body[16..])
+                {
+                    output.push("XMP", "XMP", Value::Utf8(s.trim().to_string()));
+                }
             }
             _ => {}
         }
@@ -149,11 +143,7 @@ pub fn parse(output: &mut Metadata, data: &[u8]) -> Result<()> {
         output.push("File", "MinorVersion", Value::U32(minor_version));
     }
     if !compat.is_empty() {
-        let s = compat
-            .iter()
-            .map(fourcc_str)
-            .collect::<Vec<_>>()
-            .join(", ");
+        let s = compat.iter().map(fourcc_str).collect::<Vec<_>>().join(", ");
         output.push("File", "CompatibleBrands", Value::Utf8(s));
     }
     Ok(())
@@ -178,10 +168,13 @@ fn parse_moov(meta: &mut Metadata, moov_body: &[u8], file: &[u8]) -> Result<()> 
         } else if k == *b"meta" {
             let ch = meta_children(b);
             parse_moov_meta(meta, ch, file)?;
-        } else if k == *b"uuid" && b.len() >= 16 && b[0..16] == XMP_UUID[0..16]
-            && let Ok(s) = std::str::from_utf8(&b[16..]) {
-                meta.push("XMP", "XMP", Value::Utf8(s.trim().to_string()));
-            }
+        } else if k == *b"uuid"
+            && b.len() >= 16
+            && b[0..16] == XMP_UUID[0..16]
+            && let Ok(s) = std::str::from_utf8(&b[16..])
+        {
+            meta.push("XMP", "XMP", Value::Utf8(s.trim().to_string()));
+        }
         Ok(())
     })
 }
@@ -251,9 +244,10 @@ fn parse_ilst_itunes(meta: &mut Metadata, ilst_body: &[u8]) -> Result<()> {
     for_each_box(ilst_body, |k, b| {
         let four = k;
         if let Some((g, name)) = ilst_data_atom(&four)
-            && let Some(v) = extract_ilst_data_value(b) {
-                push_gps_or_string(meta, g, name, &v);
-            }
+            && let Some(v) = extract_ilst_data_value(b)
+        {
+            push_gps_or_string(meta, g, name, &v);
+        }
         Ok(())
     })
 }
@@ -291,19 +285,16 @@ fn extract_ilst_data_value(b: &[u8]) -> Option<String> {
 
 fn push_gps_or_string(meta: &mut Metadata, g: &str, name: &str, v: &str) {
     if name == "GPSCoordinates"
-        && let Some((la, lo, alt)) = iso6709::parse_iso6709(v) {
-            meta.push(
-                "QuickTime",
-                "GPSCoordinates",
-                Value::Utf8(format!("{la:.6}, {lo:.6}")),
-            );
-            meta.push("QuickTime", "GPSLatitude", Value::F64(la));
-            meta.push("QuickTime", "GPSLongitude", Value::F64(lo));
-            if let Some(a) = alt {
-                meta.push("QuickTime", "GPSAltitude", Value::F64(a));
-            }
-            return;
+        && let Some((la, lo, alt)) = iso6709::parse_iso6709(v)
+    {
+        meta.push("QuickTime", "GPSCoordinates", Value::Utf8(format!("{la:.6}, {lo:.6}")));
+        meta.push("QuickTime", "GPSLatitude", Value::F64(la));
+        meta.push("QuickTime", "GPSLongitude", Value::F64(lo));
+        if let Some(a) = alt {
+            meta.push("QuickTime", "GPSAltitude", Value::F64(a));
         }
+        return;
+    }
     meta.push(g, name, Value::Utf8(v.to_string()));
 }
 
@@ -340,9 +331,10 @@ fn heic_embedded_tiff_exif(meta: &mut Metadata, file: &[u8]) -> Result<()> {
     for i in 0..=file.len().saturating_sub(8) {
         if (file[i] == b'I' && file[i + 1] == b'I' && file[i + 2] == 0x2a && file[i + 3] == 0
             || file[i] == b'M' && file[i + 1] == b'M' && file[i + 2] == 0 && file[i + 3] == 0x2a)
-            && tiff::parse_exif_slice(meta, &file[i..]).is_ok() {
-                break;
-            }
+            && tiff::parse_exif_slice(meta, &file[i..]).is_ok()
+        {
+            break;
+        }
     }
     Ok(())
 }
@@ -470,11 +462,7 @@ fn format_unix_utc(unix: u64) -> String {
 }
 
 fn year_len(y: i64) -> u64 {
-    if is_leap_year(y) {
-        366
-    } else {
-        365
-    }
+    if is_leap_year(y) { 366 } else { 365 }
 }
 
 fn days_in_month(y: i64, m: u32) -> u64 {
@@ -544,10 +532,12 @@ fn parse_trak(meta: &mut Metadata, trak: &[u8], _file: &[u8]) -> Result<()> {
                             for_each_box(b3, |k4, b4| {
                                 if k4 == *b"stts" {
                                     stts_parse_summary(b4, &mut stts_cnt, &mut stts_sum)?;
-                                } else if k4 == *b"stsd" && b4.len() >= 16
-                                    && let Some(cc) = stsd_first_codec(b4) {
-                                        video_codec = Some(cc);
-                                    }
+                                } else if k4 == *b"stsd"
+                                    && b4.len() >= 16
+                                    && let Some(cc) = stsd_first_codec(b4)
+                                {
+                                    video_codec = Some(cc);
+                                }
                                 Ok(())
                             })?;
                         }
@@ -563,8 +553,7 @@ fn parse_trak(meta: &mut Metadata, trak: &[u8], _file: &[u8]) -> Result<()> {
     // a nested `for_each_box` stops early on truncated sub-boxes).
     let is_audio = kind == Some(*b"soun");
     let is_video = kind == Some(*b"vide");
-    let is_videoish = is_video
-        || (tk_dim.is_some() && !is_audio);
+    let is_videoish = is_video || (tk_dim.is_some() && !is_audio);
     if is_videoish {
         if let Some((w, h)) = tk_dim {
             meta.push("File", "ImageWidth", Value::U32(w));
@@ -578,11 +567,10 @@ fn parse_trak(meta: &mut Metadata, trak: &[u8], _file: &[u8]) -> Result<()> {
             meta.push("Track1", "VideoCodec", Value::Utf8(c));
         }
     }
-    if is_audio
-        && md_scale > 0 {
-            meta.push("Track0", "AudioFormat", Value::Utf8("soun".to_string()));
-            meta.push("Track0", "AudioSampleRate", Value::F64(f64::from(md_scale)));
-        }
+    if is_audio && md_scale > 0 {
+        meta.push("Track0", "AudioFormat", Value::Utf8("soun".to_string()));
+        meta.push("Track0", "AudioSampleRate", Value::F64(f64::from(md_scale)));
+    }
     Ok(())
 }
 

@@ -1,4 +1,7 @@
-use crate::{common::PNG_SIG, error::{Error, Result}};
+use crate::{
+    common::PNG_SIG,
+    error::{Error, Result},
+};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FileType {

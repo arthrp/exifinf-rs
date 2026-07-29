@@ -1,8 +1,8 @@
 //! Strip metadata from ISO BMFF (MOV, MP4, HEIC) and fix sample/table offsets
 //! when `mdat` moves.
 
+use crate::common::XMP_UUID;
 use crate::error::{Error, Result};
-use crate::common::{XMP_UUID};
 
 struct BmffBox<'a> {
     kind: [u8; 4],
@@ -13,9 +13,7 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
     if at + 8 > data.len() {
         return Ok(None);
     }
-    let size32 = u32::from_be_bytes(
-        *<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQuicktime)?,
-    ) as u64;
+    let size32 = u32::from_be_bytes(*<&[u8; 4]>::try_from(&data[at..at + 4]).map_err(|_| Error::BadQuicktime)?) as u64;
     let mut kind = [0u8; 4];
     kind.copy_from_slice(&data[at + 4..at + 8]);
     let (header_len, total) = match size32 {
@@ -24,33 +22,25 @@ fn read_box(data: &[u8], at: usize) -> Result<Option<(usize, BmffBox<'_>)>> {
             if at + 16 > data.len() {
                 return Err(Error::Truncated);
             }
-            let t = u64::from_be_bytes(
-                *<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQuicktime)?,
-            );
+            let t = u64::from_be_bytes(*<&[u8; 8]>::try_from(&data[at + 8..at + 16]).map_err(|_| Error::BadQuicktime)?);
             (16, t)
         }
         s => (8, s as u64),
     };
-    let end = at
-        .checked_add(total as usize)
-        .ok_or(Error::BadQuicktime)?;
+    let end = at.checked_add(total as usize).ok_or(Error::BadQuicktime)?;
     if end > data.len() {
         return Err(Error::Truncated);
     }
     if header_len > total {
         return Err(Error::BadQuicktime);
     }
-    let body = data
-        .get((at + header_len as usize)..end)
-        .ok_or(Error::BadQuicktime)?;
+    let body = data.get((at + header_len as usize)..end).ok_or(Error::BadQuicktime)?;
     Ok(Some((end, BmffBox { kind, body })))
 }
 
 fn make_box(t: [u8; 4], body: Vec<u8>) -> Result<Vec<u8>> {
     let size = 8u32
-        .checked_add(
-            u32::try_from(body.len()).map_err(|_| Error::BadQuicktime)?,
-        )
+        .checked_add(u32::try_from(body.len()).map_err(|_| Error::BadQuicktime)?)
         .ok_or(Error::BadQuicktime)?;
     let mut v = vec![0u8; 8 + body.len()];
     v[0..4].copy_from_slice(&size.to_be_bytes());
@@ -274,9 +264,7 @@ fn filter_top_meta(d: &[u8], p: usize, e: usize, o: &crate::StripOptions) -> Res
         return Ok(d.get(p..e).ok_or(Error::BadQuicktime)?.to_vec());
     }
     // FullBox: first 4 bytes of body
-    let verf: [u8; 4] = d[(p + 8)..(p + 12)]
-        .try_into()
-        .map_err(|_| Error::BadQuicktime)?;
+    let verf: [u8; 4] = d[(p + 8)..(p + 12)].try_into().map_err(|_| Error::BadQuicktime)?;
     let inner = p + 12;
     let ch = {
         let mut o_ = vec![];
@@ -357,16 +345,8 @@ fn box_header_len(d: &[u8], p: usize) -> Result<usize> {
     if p + 8 > d.len() {
         return Err(Error::BadQuicktime);
     }
-    let s = u32::from_be_bytes(
-        d[p..p + 4]
-            .try_into()
-            .map_err(|_| Error::BadQuicktime)?,
-    ) as u64;
-    if s == 1 {
-        Ok(16)
-    } else {
-        Ok(8)
-    }
+    let s = u32::from_be_bytes(d[p..p + 4].try_into().map_err(|_| Error::BadQuicktime)?) as u64;
+    if s == 1 { Ok(16) } else { Ok(8) }
 }
 
 /// Inner `stco` / `co64` payload: FullBox, then n × offset.
@@ -376,21 +356,13 @@ fn patch_stco(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
     if pl + 8 > e {
         return Ok(());
     }
-    let n = u32::from_be_bytes(
-        d[pl + 4..pl + 8]
-            .try_into()
-            .map_err(|_| Error::BadQuicktime)?,
-    ) as usize;
+    let n = u32::from_be_bytes(d[pl + 4..pl + 8].try_into().map_err(|_| Error::BadQuicktime)?) as usize;
     for i in 0..n {
         let o = 8 + i * 4;
         if pl + o + 4 > e {
             break;
         }
-        let v = u32::from_be_bytes(
-            d[pl + o..pl + o + 4]
-                .try_into()
-                .map_err(|_| Error::BadQuicktime)?,
-        );
+        let v = u32::from_be_bytes(d[pl + o..pl + o + 4].try_into().map_err(|_| Error::BadQuicktime)?);
         let n2 = sub_u32(v, dlt)?;
         d[pl + o..pl + o + 4].copy_from_slice(&n2.to_be_bytes());
     }
@@ -403,21 +375,13 @@ fn patch_co64(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
     if pl + 8 > e {
         return Ok(());
     }
-    let n = u32::from_be_bytes(
-        d[pl + 4..pl + 8]
-            .try_into()
-            .map_err(|_| Error::BadQuicktime)?,
-    ) as usize;
+    let n = u32::from_be_bytes(d[pl + 4..pl + 8].try_into().map_err(|_| Error::BadQuicktime)?) as usize;
     for i in 0..n {
         let o = 8 + i * 8;
         if pl + o + 8 > e {
             break;
         }
-        let v = u64::from_be_bytes(
-            d[pl + o..pl + o + 8]
-                .try_into()
-                .map_err(|_| Error::BadQuicktime)?,
-        );
+        let v = u64::from_be_bytes(d[pl + o..pl + o + 8].try_into().map_err(|_| Error::BadQuicktime)?);
         let n2 = sub_u64(v, dlt)?;
         d[pl + o..pl + o + 8].copy_from_slice(&n2.to_be_bytes());
     }
@@ -432,10 +396,8 @@ fn read_sized_n(body: &[u8], c: &mut usize, n: u8) -> Result<u64> {
             if *c + 4 > body.len() {
                 return Err(Error::BadQuicktime);
             }
-            let o = u32::from_be_bytes(
-                *<&[u8; 4]>::try_from(&body[*c..*c + 4])
-                    .map_err(|_| Error::BadQuicktime)?,
-            ) as u64;
+            let o =
+                u32::from_be_bytes(*<&[u8; 4]>::try_from(&body[*c..*c + 4]).map_err(|_| Error::BadQuicktime)?) as u64;
             *c += 4;
             o
         }
@@ -443,10 +405,7 @@ fn read_sized_n(body: &[u8], c: &mut usize, n: u8) -> Result<u64> {
             if *c + 8 > body.len() {
                 return Err(Error::BadQuicktime);
             }
-            let o = u64::from_be_bytes(
-                *<&[u8; 8]>::try_from(&body[*c..*c + 8])
-                    .map_err(|_| Error::BadQuicktime)?,
-            );
+            let o = u64::from_be_bytes(*<&[u8; 8]>::try_from(&body[*c..*c + 8]).map_err(|_| Error::BadQuicktime)?);
             *c += 8;
             o
         }
@@ -512,21 +471,14 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
     let value2 = b[c];
     c += 1;
     let base_offset_size = (value2 >> 4) & 0x0F;
-    let index_size = if version == 0 {
-        0u8
-    } else {
-        value2 & 0x0F
-    };
+    let index_size = if version == 0 { 0u8 } else { value2 & 0x0F };
     if index_size != 0 {
         return Err(Error::Unsupported("iloc: index_size != 0"));
     }
     if c + 2 > b.len() {
         return Err(Error::BadQuicktime);
     }
-    let item_count = u16::from_be_bytes(
-        *<&[u8; 2]>::try_from(&b[c..c + 2])
-            .map_err(|_| Error::BadQuicktime)?,
-    ) as usize;
+    let item_count = u16::from_be_bytes(*<&[u8; 2]>::try_from(&b[c..c + 2]).map_err(|_| Error::BadQuicktime)?) as usize;
     c += 2;
     for _ in 0..item_count {
         if version < 2 {
@@ -542,10 +494,8 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
             if c + 2 > b.len() {
                 return Err(Error::BadQuicktime);
             }
-            offset_type = (u16::from_be_bytes(
-                *<&[u8; 2]>::try_from(&b[c..c + 2])
-                    .map_err(|_| Error::BadQuicktime)?,
-            ) & 0x0F) as u8;
+            offset_type = (u16::from_be_bytes(*<&[u8; 2]>::try_from(&b[c..c + 2]).map_err(|_| Error::BadQuicktime)?)
+                & 0x0F) as u8;
             c += 2;
         }
         if c + 2 > b.len() {
@@ -557,10 +507,8 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
         if c + 2 > b.len() {
             return Err(Error::BadQuicktime);
         }
-        let extent_count = u16::from_be_bytes(
-            *<&[u8; 2]>::try_from(&b[c..c + 2])
-                .map_err(|_| Error::BadQuicktime)?,
-        ) as usize;
+        let extent_count =
+            u16::from_be_bytes(*<&[u8; 2]>::try_from(&b[c..c + 2]).map_err(|_| Error::BadQuicktime)?) as usize;
         c += 2;
         if extent_count > 1 {
             return Err(Error::Unsupported("iloc: extent_count > 1"));
@@ -573,9 +521,7 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
                 // idat-relative: do not change
                 continue;
             }
-            let abs = base
-                .checked_add(ext)
-                .ok_or(Error::BadQuicktime)?;
+            let abs = base.checked_add(ext).ok_or(Error::BadQuicktime)?;
             if abs < dlt {
                 return Err(Error::OffsetOverflow);
             }
@@ -594,8 +540,20 @@ fn patch_iloc(d: &mut [u8], p: usize, e: usize, dlt: u64) -> Result<()> {
 fn is_container(t: [u8; 4]) -> bool {
     matches!(
         &t,
-        b"moov" | b"trak" | b"edts" | b"tref" | b"mdia" | b"minf" | b"stbl" | b"dinf" | b"mvex"
-            | b"iprp" | b"ipco" | b"udta" | b"sinf" | b"meta"
+        b"moov"
+            | b"trak"
+            | b"edts"
+            | b"tref"
+            | b"mdia"
+            | b"minf"
+            | b"stbl"
+            | b"dinf"
+            | b"mvex"
+            | b"iprp"
+            | b"ipco"
+            | b"udta"
+            | b"sinf"
+            | b"meta"
     )
 }
 

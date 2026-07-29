@@ -33,12 +33,8 @@ pub fn read_i32(data: &[u8], off: usize, e: Endian) -> Result<i32> {
 pub fn read_u64(data: &[u8], off: usize, e: Endian) -> Result<u64> {
     let b = data.get(off..off + 8).ok_or(Error::Truncated)?;
     Ok(match e {
-        Endian::Little => u64::from_le_bytes([
-            b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7],
-        ]),
-        Endian::Big => u64::from_be_bytes([
-            b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7],
-        ]),
+        Endian::Little => u64::from_le_bytes([b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]]),
+        Endian::Big => u64::from_be_bytes([b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]]),
     })
 }
 

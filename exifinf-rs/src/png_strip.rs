@@ -1,6 +1,5 @@
+use crate::common::PNG_SIG;
 use crate::error::{Error, Result};
-use crate::common::{PNG_SIG};
-
 
 /// CRC-32 (IEEE) for chunk type+data
 fn chunk_crc32(typ: [u8; 4], data: &[u8]) -> u32 {
@@ -11,11 +10,7 @@ fn chunk_crc32(typ: [u8; 4], data: &[u8]) -> u32 {
             let mut c = i as u32;
             let mut k = 0;
             while k < 8 {
-                c = if c & 1 != 0 {
-                    0xEDB88320u32 ^ (c >> 1)
-                } else {
-                    c >> 1
-                };
+                c = if c & 1 != 0 { 0xEDB88320u32 ^ (c >> 1) } else { c >> 1 };
                 k += 1;
             }
             t[i] = c;
@@ -46,8 +41,8 @@ pub fn keep_chunk(typ: [u8; 4], opts: &crate::StripOptions) -> bool {
         b"iCCP" => opts.keep_icc,
         b"eXIf" | b"zxIf" | b"tEXt" | b"zTXt" | b"iTXt" | b"tIME" | b"pHYs" | b"sPLT" | b"hIST" | b"sBIT" => false,
         t if t[0] == b'X' && t[1] | 32 == b'm' && t[2] | 32 == b'p' => false, // strip vendor XmP* / XMP
-        _ if is_critical_chunk(typ) => true, // keep unknown critical chunks
-        _ => false, // strip unknown ancillary
+        _ if is_critical_chunk(typ) => true,                                  // keep unknown critical chunks
+        _ => false,                                                           // strip unknown ancillary
     }
 }
 
@@ -69,9 +64,7 @@ pub fn strip(data: &[u8], opts: &crate::StripOptions) -> Result<Vec<u8>> {
         let mut chunk_type = [0u8; 4];
         chunk_type.copy_from_slice(&data[p + 4..p + 8]);
         let dstart = p + 8;
-        let dend = dstart
-            .checked_add(len)
-            .ok_or(Error::BadPng)?;
+        let dend = dstart.checked_add(len).ok_or(Error::BadPng)?;
         if dend + 4 > data.len() {
             return Err(Error::Truncated);
         }

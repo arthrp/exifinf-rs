@@ -22,11 +22,7 @@ pub fn strip(data: &[u8], opts: &crate::StripOptions) -> Result<Vec<u8>> {
         }
         let m = data[p];
         p += 1;
-        if m == 0xd8
-            || m == 0xd9
-            || (0xd0..=0xd7).contains(&m)
-            || m == 0x01
-        {
+        if m == 0xd8 || m == 0xd9 || (0xd0..=0xd7).contains(&m) || m == 0x01 {
             continue;
         }
         if p + 2 > data.len() {
@@ -84,11 +80,7 @@ fn keep_marked_segment(marker: u8, payload: &[u8], opts: &crate::StripOptions) -
         }
         return false; // all other APP
     }
-    if is_sof(marker)
-        || matches!(
-            marker,
-            0xc4 | 0xc8 | 0xcc | 0xdb | 0xdd
-        ) {
+    if is_sof(marker) || matches!(marker, 0xc4 | 0xc8 | 0xcc | 0xdb | 0xdd) {
         return true;
     }
     true

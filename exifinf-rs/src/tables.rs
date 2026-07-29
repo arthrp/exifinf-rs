@@ -10,10 +10,7 @@ pub fn lookup_exif(id: u16) -> Option<&'static crate::tag_def::TagDef> {
 }
 
 pub fn lookup_gps(id: u16) -> Option<&'static crate::tag_def::TagDef> {
-    GPS_MAIN
-        .binary_search_by_key(&id, |p| p.0)
-        .ok()
-        .map(|i| &GPS_MAIN[i].1)
+    GPS_MAIN.binary_search_by_key(&id, |p| p.0).ok().map(|i| &GPS_MAIN[i].1)
 }
 
 pub fn lookup_png_text(keyword: &str) -> Option<&'static crate::tag_def::PngTextDef> {
@@ -24,8 +21,5 @@ pub fn lookup_png_text(keyword: &str) -> Option<&'static crate::tag_def::PngText
 }
 
 pub fn lookup_png_text_by_tagname(name: &str) -> Option<&'static crate::tag_def::PngTextDef> {
-    PNG_TEXTUAL
-        .iter()
-        .find(|(_, d)| d.name == name)
-        .map(|(_, d)| d)
+    PNG_TEXTUAL.iter().find(|(_, d)| d.name == name).map(|(_, d)| d)
 }

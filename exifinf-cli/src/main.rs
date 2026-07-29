@@ -98,13 +98,7 @@ fn main() {
                 eprintln!("{e}");
                 process::exit(1);
             }
-            eprintln!(
-                "stripped {} -> {} ({} -> {} bytes)",
-                in_path,
-                o,
-                b.len(),
-                n.len()
-            );
+            eprintln!("stripped {} -> {} ({} -> {} bytes)", in_path, o, b.len(), n.len());
         } else {
             if let Err(e) = exifinf_rs::strip_metadata_in_place(p, &op) {
                 eprintln!("{e}");

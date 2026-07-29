@@ -28,12 +28,7 @@ impl Format {
         match self {
             Format::Int8u | Format::String | Format::Int8s | Format::Undef | Format::Utf8 => 1,
             Format::Int16u | Format::Int16s => 2,
-            Format::Int32u
-            | Format::Int32s
-            | Format::Float
-            | Format::Ifd
-            | Format::Unicode
-            | Format::Complex => 4,
+            Format::Int32u | Format::Int32s | Format::Float | Format::Ifd | Format::Unicode | Format::Complex => 4,
             Format::Rational64u | Format::Rational64s => 8,
             Format::Double | Format::Int64u | Format::Int64s | Format::Ifd64 => 8,
         }

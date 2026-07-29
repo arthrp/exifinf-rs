@@ -3,12 +3,12 @@ use std::io::Read;
 
 use flate2::read::ZlibDecoder;
 
+use crate::common::PNG_SIG;
 use crate::error::{Error, Result};
 use crate::metadata::Metadata;
 use crate::tables::lookup_png_text;
 use crate::tiff;
 use crate::value::Value;
-use crate::common::{PNG_SIG};
 
 pub fn parse(meta: &mut Metadata, data: &[u8]) -> Result<()> {
     if data.len() < 8 {
@@ -60,11 +60,7 @@ fn parse_ihdr(meta: &mut Metadata, d: &[u8]) -> Result<()> {
 }
 
 fn parse_exif_chunk(meta: &mut Metadata, d: &[u8]) -> Result<()> {
-    let d = if d.starts_with(b"Exif\0\0") {
-        &d[6..]
-    } else {
-        d
-    };
+    let d = if d.starts_with(b"Exif\0\0") { &d[6..] } else { d };
     if d.is_empty() {
         return Ok(());
     }

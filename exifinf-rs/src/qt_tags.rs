@@ -24,16 +24,14 @@ fn brand_tuple(brand: &[u8; 4]) -> Option<(String, String)> {
     let s = as_brand_str(brand);
     match s.as_str() {
         "qt" | "MOV" => Some(("MOV".to_string(), "video/quicktime".to_string())),
-        "M4A" | "M4B" | "F4A" | "F4B" | "M4P" | "F4P" | "isom" | "iso2" | "mp41" | "mp42"
-        | "avc1" | "dash" | "dsms" | "dby1" | "Cdmv" | "Cmov" => {
-            Some(("MP4".to_string(), "video/mp4".to_string()))
-        }
+        "M4A" | "M4B" | "F4A" | "F4B" | "M4P" | "F4P" | "isom" | "iso2" | "mp41" | "mp42" | "avc1" | "dash"
+        | "dsms" | "dby1" | "Cdmv" | "Cmov" => Some(("MP4".to_string(), "video/mp4".to_string())),
         "M4V" | "F4V" | "mmp4" => Some(("M4V".to_string(), "video/x-m4v".to_string())),
         "heic" | "mif1" | "heix" | "heis" | "hevm" | "mif0" | "heio" | "msf0" | "ihev" => {
             Some(("HEIC".to_string(), "image/heic".to_string()))
         }
-        "3gp" | "3g2" | "3G2" | "3G6" | "3ge" | "3gg" | "3gr" | "3gs" | "3gh" | "3gp1" | "3gp2"
-        | "3gp4" | "3gp5" | "3gp6" | "3g24" | "3gg6" | "3gs7" | "3gs8" | "3gs9" | "3gdd" | "3g2a" => {
+        "3gp" | "3g2" | "3G2" | "3G6" | "3ge" | "3gg" | "3gr" | "3gs" | "3gh" | "3gp1" | "3gp2" | "3gp4" | "3gp5"
+        | "3gp6" | "3g24" | "3gg6" | "3gs7" | "3gs8" | "3gs9" | "3gdd" | "3g2a" => {
             Some(("3GPP".to_string(), "video/3gpp".to_string()))
         }
         "jp2" | "jpx" | "jpm" => Some(("JP2".to_string(), "image/jp2".to_string())),

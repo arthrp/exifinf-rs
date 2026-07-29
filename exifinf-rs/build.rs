@@ -25,14 +25,11 @@ fn main() {
     let data = Path::new(&manifest).join("data");
 
     let exif: BTreeMap<String, TagJson> =
-        serde_json::from_str(&fs::read_to_string(data.join("exif.json")).expect("exif.json"))
-            .expect("parse exif.json");
+        serde_json::from_str(&fs::read_to_string(data.join("exif.json")).expect("exif.json")).expect("parse exif.json");
     let gps: BTreeMap<String, TagJson> =
-        serde_json::from_str(&fs::read_to_string(data.join("gps.json")).expect("gps.json"))
-            .expect("parse gps.json");
+        serde_json::from_str(&fs::read_to_string(data.join("gps.json")).expect("gps.json")).expect("parse gps.json");
     let png: PngRoot =
-        serde_json::from_str(&fs::read_to_string(data.join("png.json")).expect("png.json"))
-            .expect("parse png.json");
+        serde_json::from_str(&fs::read_to_string(data.join("png.json")).expect("png.json")).expect("parse png.json");
 
     let mut buf = String::new();
     buf.push_str("use crate::format::Format;\n");
@@ -67,10 +64,7 @@ fn emit_png(buf: &mut String, png: &PngRoot) {
         }
         let b: Vec<u8> = chunk.bytes().collect();
         let def = emit_png_chunk_def(v);
-        buf.push_str(&format!(
-            "    ([{}, {}, {}, {}], {def}),\n",
-            b[0], b[1], b[2], b[3]
-        ));
+        buf.push_str(&format!("    ([{}, {}, {}, {}], {def}),\n", b[0], b[1], b[2], b[3]));
     }
     buf.push_str("];\n\n");
 

@@ -1,8 +1,6 @@
 //! WASM bindings for `exifinf-rs` (browser / Node via wasm-bindgen).
 
-use exifinf_rs::{
-    extract as core_extract, format_record, strip_metadata as core_strip, StripOptions, Value,
-};
+use exifinf_rs::{StripOptions, Value, extract as core_extract, format_record, strip_metadata as core_strip};
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
 
@@ -58,9 +56,7 @@ fn value_to_json(v: &Value) -> serde_json::Value {
                 .collect(),
         ),
         Value::Ascii(s) | Value::Utf8(s) => serde_json::Value::String(s.clone()),
-        Value::Undef(b) => serde_json::Value::Array(
-            b.iter().map(|&x| serde_json::Value::from(x)).collect(),
-        ),
+        Value::Undef(b) => serde_json::Value::Array(b.iter().map(|&x| serde_json::Value::from(x)).collect()),
         Value::U16s(v) => serde_json::Value::Array(v.iter().map(|&x| x.into()).collect()),
         Value::U32s(v) => serde_json::Value::Array(v.iter().map(|&x| x.into()).collect()),
         Value::I16s(v) => serde_json::Value::Array(v.iter().map(|&x| x.into()).collect()),
